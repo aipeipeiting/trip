@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="上海行">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAE2klEQVR4nO3cS07jQBhFYWgxZ1cMEGMWyRJYG4MeRGqhTq7tVP2PW8755sSu8qHs2Ibn14/3J+CWP907AF/EAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAPSS/cO9Pj+vHvgb18/GXvi7CHiGEjhyIecPpfTxhESxPFNnDKUs8VR0MT2ds9UyUni6Gri2pkqcZnTMT5NXDtBJb6Tu20yi4EDNrzFyw+umMjz68d79z7cZ+wghR8bk91ItVIc9x6PsiNhu2OT1ojj+Oy3z/tCu7prgTgOTrfVXK+4z9es4zgyxebzu/QQfOPYnVbbOb226Fgc41h0KnctNy67OLZn0G36Biw0QK/3ORaauGHbo7C65+uycjxCFv/xH7LFyuE/TRn8l5D+lWNjFlKzuGv2u/ak9xejOY7KeQn8Xazct8Y+OuOomZHU9blmP7v6aItDzUXURBSfs7N3u6WPnjjypqD9Oi5vCPV9NMSRNPj2LH5LGktxH9VxZAx7OIuDG83+/Ls2WtlHaRztZYTMbNkW2/voX4qHh9r1zsTvD9zdh5kXSN++fnrPlXUrx81xppZh9Zpg7EhrhlYUR+AInR98J+1bVx8Vz1YC18bdpzC995t3d6BsKkK0PXgL/8sRn+dz4X2c9g5p1JJoeHd5V+w+159ccuMIGc8qC8ZNsTtf3IfF+xwbtn/5zMt42ttJq7u61xLjmM98xVPJTVF93PycvMKy4khdANcq4yJ17El9+C5rNTePK++aqDue358vnrmnXJDmnVDqH46UbX1+fsILK4rDoQyf1wST+lggjsmow8vwfE1wfpgFi0fFV9n5PfYsY+bzG+fkuOA4Jg9G7PO5mrsIwxvK+N4RO+Tg08rMibDyye3xz8/+ZyzhZ+HAFSUyNIf7feGvVhx/tcfkH8MFfjHOveYoXjaO3LSYmbgjPx7y/8FM/neUxbOVmudzgfcoYx/KF98UPy4sjt7B1D+fc36iFrX1xJVj5sX/VZ7POTxRe6xH9lG3U2uuDTc25POH/GNi4hj+QpX0tb5+okP6GP7x662HnFnsVo4lbh0mbddt8bCL47jGP+hQbL93jAmIY3jwM7NmWMbGPoSPNPUH/0lZOYYPksPR7WU1dUueVmyXjYvTnFza4oj9guNTxkXsfYuusGbjWPEX4nFMHp34lcPnHkOvE8xDz2ml8Qq811oDd7kgtbpKj7L6oFzigKGV4ih4GT+cz1ePAVNxrHi0zi22xYaVY6FfHSv182ZxWmG9ueYwJxZxHLHuKWzdy45l4kA94oBEHJCIA9LU38qucmH14Iav3Fk5IBEHJOKARByQiAMScUCa+i66ytMNjGHlgEQckIgDEnFAIg5IxAGJOCARByTigEQckIgDEnFAIg5IxAGJOCARByTigEQckIgDEnFAIg5IxAHpLy2gYuUZAxdSAAAAAElFTkSuQmCC">
+<title>上海 5 天 4 夜｜行程</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --jade:#0F4C4A; --jade-2:#16625F; --brass:#B8893B; --brass-soft:#E9D9B4;
+  --red:#A8392C; --bg:#ECF1EC; --card:#FFFFFF; --ink:#1A2422; --muted:#5E6E6A; --line:#D3DDD7;
+  --chip:#E1EAE4; --done:#9AA8A3;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --jade:#0B3634; --jade-2:#1E7470; --brass:#D2A957; --brass-soft:#4A3E25;
+    --red:#E0715F; --bg:#0E1615; --card:#17221F; --ink:#E7EEEA; --muted:#9BAAA5; --line:#2A3833;
+    --chip:#1F2C29; --done:#5B6965; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --jade:#0B3634; --jade-2:#1E7470; --brass:#D2A957; --brass-soft:#4A3E25;
+  --red:#E0715F; --bg:#0E1615; --card:#17221F; --ink:#E7EEEA; --muted:#9BAAA5; --line:#2A3833;
+  --chip:#1F2C29; --done:#5B6965; color-scheme: dark;
+}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--jade)}
+.serif{font-family:"Noto Serif TC","Songti TC",serif}
+a{color:inherit}
+.wrap{max-width:560px;margin:0 auto;padding:0 16px 48px}
+
+/* hero */
+.hero{background:var(--jade);color:#F4EEDD;margin:0 -16px;padding:22px 20px 0;position:relative;overflow:hidden}
+.hero h1{font-family:"Noto Serif TC","Songti TC",serif;font-weight:900;font-size:34px;line-height:1.15;margin:0;letter-spacing:.04em}
+.hero .sub{margin:6px 0 0;color:#CFE0DA;font-size:14px}
+.hero .who{font-size:13px;color:#CFE0DA;margin-top:2px}
+.deco{display:block;width:100%;height:84px;margin-top:14px}
+.count{display:flex;align-items:baseline;gap:10px;margin-top:16px}
+.count b{font-family:"Noto Serif TC",serif;font-size:64px;line-height:1;color:var(--brass);font-weight:900}
+.count span{font-size:15px;color:#E6DCC2}
+.test{display:inline-block;font-size:12px;border:1px solid #C9A24E;color:#E6D2A0;border-radius:4px;padding:0 6px;margin-left:6px;vertical-align:middle}
+
+/* flights */
+.flights{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.flt{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;position:relative}
+.flt .tag{font-size:12px;font-weight:700;color:var(--jade-2)}
+.flt.back .tag{color:var(--red)}
+.flt .no{position:absolute;right:12px;top:12px;font-size:12px;color:var(--muted)}
+.flt .t{display:flex;justify-content:space-between;align-items:baseline;margin-top:4px}
+.flt .t strong{font-size:22px;font-variant-numeric:tabular-nums}
+.flt .ap{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
+.flt .d{font-size:12px;color:var(--muted);border-top:1px dashed var(--line);margin-top:8px;padding-top:6px}
+
+.block{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:10px}
+.block h3{margin:0 0 6px;font-size:15px;font-family:"Noto Serif TC",serif}
+.hotel a.name{font-weight:700;text-decoration:none;border-bottom:1px solid var(--brass)}
+.small{font-size:13px;color:var(--muted)}
+.maps{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:4px;font-size:13px;padding:6px 10px;border-radius:999px;background:var(--chip);color:var(--ink);text-decoration:none;border:0;cursor:pointer;font-family:inherit}
+.btn.g{background:var(--jade-2);color:#fff}
+.wx{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:6px}
+.wx div{text-align:center;background:var(--chip);border-radius:10px;padding:6px 2px;font-size:12px}
+.wx .i{font-size:20px;line-height:1.4}
+.wx .tmp{font-variant-numeric:tabular-nums}
+
+/* tabs */
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);margin:14px -16px 0;padding:10px 16px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:7px 16px;font-size:15px;font-family:inherit;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--jade);border-color:var(--jade);color:#F4EEDD}
+.tab:focus-visible,.btn:focus-visible,.day:focus-visible,.chk:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
+
+/* days */
+.days{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:6px}
+.day{border:0;background:none;padding:6px 0;cursor:pointer;font-family:inherit;color:var(--muted);text-align:center}
+.day .n{display:block;font-family:"Noto Serif TC",serif;font-weight:900;font-size:20px;color:var(--ink)}
+.day .p{font-size:12px}
+.day[aria-selected="true"]{color:var(--jade-2)}
+.day[aria-selected="true"] .n{color:var(--brass);text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px}
+.prog{height:4px;background:var(--line);border-radius:4px;margin:10px 0 4px;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--brass);transition:width .3s}
+.dayhead h2{font-family:"Noto Serif TC",serif;font-size:21px;margin:10px 0 2px}
+
+.tl{list-style:none;margin:12px 0 0;padding:0;position:relative}
+.tl::before{content:"";position:absolute;left:52px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.tl li{display:grid;grid-template-columns:44px 20px 1fr;gap:8px;padding:0 0 14px}
+.tl time{font-size:13px;font-weight:700;color:var(--jade-2);font-variant-numeric:tabular-nums;padding-top:12px;text-align:right}
+.chk{width:20px;height:20px;border-radius:50%;border:2px solid var(--brass);background:var(--bg);margin-top:13px;cursor:pointer;padding:0;position:relative;z-index:1}
+.chk[aria-pressed="true"]{background:var(--brass)}
+.chk[aria-pressed="true"]::after{content:"✓";color:#fff;font-size:12px;position:absolute;inset:0;display:grid;place-items:center}
+.item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.item .tt{font-weight:700}
+.item .k{font-size:12px;color:var(--brass);font-weight:700;margin-right:6px}
+.item p{margin:2px 0 0;font-size:14px;color:var(--muted)}
+.done .item{opacity:.55}
+.done .tt{text-decoration:line-through;text-decoration-color:var(--done)}
+
+.list{list-style:none;padding:0;margin:10px 0 0}
+.list li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:8px}
+.list .tt{font-weight:700}
+.list p{margin:2px 0 0;font-size:14px;color:var(--muted)}
+.notes h3{font-family:"Noto Serif TC",serif;font-size:16px;margin:16px 0 6px}
+.notes ul{margin:0;padding-left:20px}
+.notes li{margin-bottom:4px}
+.foot{text-align:center;font-size:12px;color:var(--muted);margin-top:28px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <h1>上海 5 天 4 夜</h1>
+    <p class="sub">2026/12/24 – 12/28 · 個人行程 <span class="test">測試資料</span></p>
+    <p class="who">旅客：Amy、Ben</p>
+    <div class="count" id="count"></div>
+    <svg class="deco" viewBox="0 0 400 84" preserveAspectRatio="none" aria-hidden="true">
+      <g fill="none" stroke="#C9A24E" stroke-width="1.5">
+        <path d="M200 84 A80 80 0 0 1 360 84"/><path d="M220 84 A60 60 0 0 1 340 84"/><path d="M240 84 A40 40 0 0 1 320 84"/>
+        <path d="M40 84 A80 80 0 0 1 200 84"/><path d="M60 84 A60 60 0 0 1 180 84"/><path d="M80 84 A40 40 0 0 1 160 84"/>
+        <path d="M-120 84 A80 80 0 0 1 40 84"/><path d="M360 84 A80 80 0 0 1 520 84"/>
+      </g>
+      <g fill="#C9A24E" opacity=".9">
+        <rect x="276" y="22" width="4" height="62"/><circle cx="278" cy="34" r="7"/><circle cx="278" cy="54" r="4"/><rect x="277" y="6" width="2" height="18"/>
+      </g>
+    </svg>
+  </header>
+
+  <section class="flights" aria-label="航班">
+    <div class="flt"><span class="tag">去程</span><span class="no">CI501</span>
+      <div class="t"><strong>08:00</strong><strong>09:55</strong></div>
+      <div class="ap"><span>桃園 T1</span><span>浦東 T1</span></div>
+      <div class="d">12/24（四）· 約 1 小時 55 分</div></div>
+    <div class="flt back"><span class="tag">回程</span><span class="no">CI502</span>
+      <div class="t"><strong>16:30</strong><strong>18:25</strong></div>
+      <div class="ap"><span>浦東 T1</span><span>桃園 T1</span></div>
+      <div class="d">12/28（一）· 約 1 小時 55 分</div></div>
+  </section>
+
+  <section class="block hotel">
+    <h3>住宿</h3>
+    <a class="name" href="#" data-map="上海和平飯店 南京東路20號">上海和平飯店</a>
+    <div class="small">黃浦區南京東路 20 號 · 地鐵 2/10 號線「南京東路站」步行 6 分鐘</div>
+    <div class="small">入住 15:00 · 退房 12:00</div>
+    <div class="maps" data-q="上海和平飯店 南京東路20號"></div>
+  </section>
+
+  <section class="block">
+    <h3>上海天氣（往年同期參考）</h3>
+    <div class="wx" id="wx"></div>
+    <p class="small" style="margin:8px 0 0">12 月下旬上海濕冷，常見 3～10°C，體感比溫度更冷。帶發熱衣、防風外套、圍巾和折疊傘。</p>
+  </section>
+
+  <nav class="tabs" role="tablist" aria-label="分類">
+    <button class="tab" role="tab" data-v="plan">行程</button>
+    <button class="tab" role="tab" data-v="food">美食</button>
+    <button class="tab" role="tab" data-v="shop">購物</button>
+    <button class="tab" role="tab" data-v="notes">須知</button>
+  </nav>
+
+  <main id="view"></main>
+  <p class="foot">此頁為測試資料，航班與店家資訊請以實際預訂為準。<br><button class="btn" id="reset" style="margin-top:8px">清除打勾紀錄</button></p>
+</div>
+
+<script>
+const START = new Date(2026,11,24);
+const days = [
+ {d:"12/24（四）",p:"外灘",title:"抵達・南京路・外灘夜景",items:[
+  ["09:55","抵達浦東機場 T1","入境、領行李。機場可買交通卡或直接用支付寶「乘車碼」。","浦東國際機場 T1","交通"],
+  ["11:00","磁浮列車 → 地鐵 2 號線","磁浮到龍陽路約 8 分鐘，轉 2 號線到南京東路。全程約 1 小時。","龍陽路站","交通"],
+  ["12:30","寄放行李・午餐 小楊生煎","生煎包要小口咬，裡面湯汁很燙。","小楊生煎 黃河路","吃"],
+  ["14:00","南京路步行街","從南京東路一路逛到人民廣場。","南京路步行街","逛"],
+  ["15:30","飯店 Check-in","上海和平飯店，稍微休息。","上海和平飯店","住"],
+  ["17:30","外灘・萬國建築群","天黑後燈光最好看，對岸就是陸家嘴天際線。","外灘","景點"],
+  ["19:30","晚餐 老正興菜館","本幫菜老店，點油爆蝦、草頭圈子。","老正興菜館 福州路","吃"]]},
+ {d:"12/25（五）",p:"豫園",title:"豫園・新天地・武康路",items:[
+  ["08:30","豫園","園林開門就進，人比較少。","豫園","景點"],
+  ["10:30","南翔饅頭店","豫園九曲橋旁，排隊時間較長可外帶。","南翔饅頭店 豫園","吃"],
+  ["12:00","城隍廟商圈","伴手禮、小吃一條街。","上海城隍廟","逛"],
+  ["14:00","田子坊","石庫門弄堂裡的小店與咖啡。","田子坊","逛"],
+  ["16:00","新天地","石庫門改建街區，可在這裡喝下午茶。","上海新天地","逛"],
+  ["18:00","武康路・武康大樓","梧桐樹老洋房街，傍晚拍照好看。","武康大樓","景點"],
+  ["19:30","晚餐 安福路一帶","西式小館、酒吧多，可現場挑。","安福路","吃"]]},
+ {d:"12/26（六）",p:"朱家角",title:"朱家角古鎮・陸家嘴",items:[
+  ["09:00","地鐵 17 號線 → 朱家角","從虹橋火車站搭 17 號線，約 50 分鐘。","朱家角站","交通"],
+  ["10:00","朱家角古鎮","放生橋、北大街，可搭搖櫓船。","朱家角古鎮","景點"],
+  ["12:00","古鎮午餐","扎肉粽、紅燒蹄髈是在地名物。","朱家角 北大街","吃"],
+  ["15:00","返回市區","17 號線轉 2 號線到陸家嘴，約 1.5 小時。","陸家嘴站","交通"],
+  ["16:30","上海中心大廈觀光廳","118 樓看日落和夜景，建議先網路購票。","上海中心大廈","景點"],
+  ["18:30","濱江大道散步","從對岸看外灘，跟第一天角度不同。","陸家嘴濱江大道","景點"],
+  ["19:30","晚餐 正大廣場","商場餐廳選擇多，不用預訂。","正大廣場","吃"]]},
+ {d:"12/27（日）",p:"人民廣場",title:"博物館・靜安寺・愚園路",items:[
+  ["09:00","上海博物館","青銅器、陶瓷館必看，需提前預約。","上海博物館 人民大道","景點"],
+  ["12:00","午餐 佳家湯包","人民廣場附近的湯包老店。","佳家湯包 黃河路","吃"],
+  ["13:30","靜安寺","金頂寺院就在商圈中間。","靜安寺","景點"],
+  ["15:00","愚園路","老洋房與小店，安靜好逛。","愚園路","逛"],
+  ["17:00","BFC 外灘金融中心","外灘南端的商場，頂樓看黃浦江。","BFC外灘金融中心","逛"],
+  ["19:00","晚餐 蟹粉麵","冬季限定，蟹粉拌麵很推薦。","蟹黃魚 上海","吃"]]},
+ {d:"12/28（一）",p:"返台",title:"最後採買・返台",items:[
+  ["09:00","早餐 雲南南路","生煎、粢飯糰等傳統早點。","雲南南路美食街","吃"],
+  ["10:30","最後採買","南京東路第一食品商店買伴手禮。","上海第一食品商店 南京東路","逛"],
+  ["12:00","退房","可請飯店寄放行李到下午。","上海和平飯店","住"],
+  ["13:00","前往浦東機場","地鐵 2 號線 + 磁浮，或計程車約 1 小時。","浦東國際機場 T1","交通"],
+  ["16:30","CI502 起飛","18:25 抵達桃園 T1。","浦東國際機場 T1","交通"]]}
+];
+const food=[
+ ["小楊生煎","皮脆底焦、湯汁多，連鎖店到處都有。","小楊生煎 黃河路"],
+ ["南翔饅頭店","小籠包老字號，豫園本店最有名。","南翔饅頭店 豫園"],
+ ["老正興菜館","本幫菜，濃油赤醬。","老正興菜館 福州路"],
+ ["佳家湯包","薄皮湯包、蛋皮湯。","佳家湯包 黃河路"],
+ ["蟹黃魚","蟹粉麵、蟹粉豆腐，冬季吃正好。","蟹黃魚 上海"],
+ ["雲南南路美食街","早餐、宵夜都有。","雲南南路美食街"]];
+const shop=[
+ ["第一食品商店","伴手禮一次買齊：大白兔、蝴蝶酥。","上海第一食品商店 南京東路"],
+ ["國際飯店西餅屋","蝴蝶酥名店，早上排隊較短。","國際飯店西餅屋"],
+ ["城隍廟商圈","傳統小物、茶葉。","上海城隍廟"],
+ ["新天地","設計品牌、咖啡。","上海新天地"],
+ ["iapm / 環貿廣場","淮海中路精品商場。","上海環貿iapm"]];
+const wx=[["12/24","☁️","4–9°"],["12/25","🌤️","3–10°"],["12/26","🌥️","3–9°"],["12/27","🌧️","5–9°"],["12/28","☁️","4–8°"]];
+
+const gUrl=q=>"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q);
+const aUrl=q=>"https://uri.amap.com/search?keyword="+encodeURIComponent(q)+"&city=上海";
+const mapBtns=q=>`<a class="btn g" href="${gUrl(q)}" target="_blank" rel="noopener">Google 地圖</a><a class="btn" href="${aUrl(q)}" target="_blank" rel="noopener">高德地圖</a>`;
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+let state={};try{state=JSON.parse(localStorage.getItem("sh-trip")||"{}")}catch(e){}
+const save=()=>{try{localStorage.setItem("sh-trip",JSON.stringify(state))}catch(e){}};
+let tab="plan",day=Math.min(Math.max(Math.floor((new Date().setHours(0,0,0,0)-START)/864e5),0),4);
+try{tab=localStorage.getItem("sh-tab")||"plan"}catch(e){}
+
+// countdown
+(function(){const c=document.getElementById("count");const n=Math.ceil((START-new Date().setHours(0,0,0,0))/864e5);
+ if(n>0)c.innerHTML=`<b>${n}</b><span>天後出發</span>`;
+ else if(n>-5)c.innerHTML=`<b>D${1-n}</b><span>旅程進行中</span>`;
+ else c.innerHTML=`<span>旅程已結束</span>`;})();
+document.getElementById("wx").innerHTML=wx.map(w=>`<div><div>${w[0]}</div><div class="i">${w[1]}</div><div class="tmp">${w[2]}</div></div>`).join("");
+document.querySelectorAll(".maps").forEach(m=>m.innerHTML=mapBtns(m.dataset.q));
+document.querySelectorAll("[data-map]").forEach(a=>{a.href=gUrl(a.dataset.map);a.target="_blank";a.rel="noopener"});
+
+function render(){
+ document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.v===tab));
+ const v=document.getElementById("view");
+ if(tab==="plan"){
+  const D=days[day];const done=D.items.filter((_,i)=>state[day+"-"+i]).length;
+  v.innerHTML=`<div class="days" role="tablist">${days.map((x,i)=>`<button class="day" role="tab" aria-selected="${i===day}" data-d="${i}"><span class="n">D${i+1}</span><span class="p">${x.p}</span></button>`).join("")}</div>
+  <div class="prog"><i style="width:${done/D.items.length*100}%"></i></div>
+  <div class="small">完成 ${done} / ${D.items.length}</div>
+  <div class="dayhead"><h2>${D.d} ${D.title}</h2></div>
+  <ol class="tl">${D.items.map((it,i)=>{const on=!!state[day+"-"+i];return `<li class="${on?"done":""}"><time>${it[0]}</time>
+   <button class="chk" aria-pressed="${on}" aria-label="標記完成：${esc(it[1])}" data-k="${day}-${i}"></button>
+   <div class="item"><div class="tt"><span class="k">${it[4]}</span>${esc(it[1])}</div><p>${esc(it[2])}</p><div class="maps">${mapBtns(it[3])}</div></div></li>`}).join("")}</ol>`;
+ } else if(tab==="food"||tab==="shop"){
+  const L=tab==="food"?food:shop;
+  v.innerHTML=`<ul class="list">${L.map(x=>`<li><div class="tt">${x[0]}</div><p>${x[1]}</p><div class="maps">${mapBtns(x[2])}</div></li>`).join("")}</ul>`;
+ } else {
+  v.innerHTML=`<div class="notes">
+  <h3>證件</h3><ul><li>台胞證（效期需涵蓋回程日）＋護照</li><li>證件影本拍照存在手機裡</li></ul>
+  <h3>付款</h3><ul><li>多數店家只收支付寶或微信支付，出發前先綁好信用卡</li><li>仍建議帶少量人民幣現金備用</li></ul>
+  <h3>網路</h3><ul><li>當地無法直接使用 Google、LINE、IG，請用國際漫遊或可翻牆的 eSIM</li><li>當地導航建議用高德地圖，本頁每個地點都附兩種地圖連結</li></ul>
+  <h3>交通</h3><ul><li>支付寶「乘車碼」可直接刷地鐵、公車</li><li>叫車用滴滴（可在支付寶內開啟）</li></ul>
+  <h3>緊急電話</h3><ul><li>報警 <a href="tel:110">110</a>・救護 <a href="tel:120">120</a>・消防 <a href="tel:119">119</a></li></ul>
+  <h3>加到 iPhone 主畫面</h3><ul><li>用 Safari 開啟本頁 → 分享 → 「加入主畫面」</li></ul></div>`;
+ }
+}
+document.addEventListener("click",e=>{
+ const t=e.target.closest(".tab");if(t){tab=t.dataset.v;try{localStorage.setItem("sh-tab",tab)}catch(_){}render();return}
+ const d=e.target.closest(".day");if(d){day=+d.dataset.d;render();return}
+ const c=e.target.closest(".chk");if(c){const k=c.dataset.k;state[k]=!state[k];save();render();return}
+ if(e.target.id==="reset"){state={};save();render()}
+});
+render();
+</script>
+</body>
+</html>

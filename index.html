@@ -99,8 +99,17 @@ main{padding:0 20px}
 .day[aria-selected="true"] .w,.day[aria-selected="true"] .p{color:#fff;opacity:.8}
 .day .dot{position:absolute;top:7px;right:9px;width:6px;height:6px;border-radius:50%;background:var(--pink)}
 
-.dayhead{margin:18px 0 0}
+.dayhead{margin:18px 0 0;display:flex;justify-content:space-between;align-items:center;gap:12px}
 .dayhead h2{margin:0;font-size:21px;font-weight:500}
+.wchip{display:inline-flex;align-items:center;gap:5px;flex:none;font-size:14px;color:var(--blue-ink);background:var(--blue-soft);border-radius:999px;padding:3px 11px 3px 8px;font-variant-numeric:tabular-nums}
+.wchip svg{width:18px;height:18px}
+.wchip small{font-size:11px;color:var(--muted)}
+.wgrid{display:grid;gap:6px;margin-top:10px}
+.wcell{text-align:center;background:var(--blue-soft);border-radius:14px;padding:8px 2px;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.wcell svg{width:22px;height:22px;color:var(--blue-ink);display:block;margin:4px auto 2px}
+.wcell b{display:block;font-weight:500;color:var(--ink);font-size:14px}
+.wcell .rain{color:var(--blue-ink)}
+.wcap{font-size:12px;color:var(--muted);margin:6px 0 0}
 
 /* reminder */
 .remind{margin-top:14px;background:var(--pink-soft);border-radius:18px;padding:6px 16px}
@@ -147,6 +156,7 @@ main{padding:0 20px}
 .list{list-style:none;padding:0;margin:12px 0 0}
 .list li{background:var(--card);border-radius:18px;padding:14px 16px;margin-bottom:10px;box-shadow:var(--shadow);border:1px solid var(--line)}
 .list .tt{font-weight:500}
+.list .k{font-size:12px;color:var(--muted);margin-left:8px;font-weight:400}
 .list p{margin:2px 0 0;font-size:14px;color:var(--muted)}
 .hotel .when2{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
 .hotel .when2 span{font-size:13px;background:var(--blue-soft);color:var(--blue-ink);border-radius:999px;padding:2px 10px}
@@ -225,26 +235,98 @@ const ICON={
  car:'<svg class="i" viewBox="0 0 24 24"><path d="M5 16V12l2-5h10l2 5v4z"/><path d="M5 16v2M19 16v2M5 12h14"/><circle cx="8" cy="14" r=".8"/><circle cx="16" cy="14" r=".8"/></svg>',
  alert:'<svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 8v5M12 16h.01"/></svg>',
  plane:'<svg class="i" viewBox="0 0 24 24"><path d="M10.5 13.5 4 12l-1 1.5 6 3 3 6 1.5-1-1.5-6.5L18 9a2 2 0 0 0-3-3l-5 5.5z"/></svg>'};
+const WI={
+ sun:'<svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4"/></svg>',
+ part:'<svg class="i" viewBox="0 0 24 24"><path d="M9 4.5V6M4.5 9H6M5.8 5.8l1 1M12.4 6.4l-1 1"/><path d="M12.5 9.6A3.6 3.6 0 1 0 7 13"/><path d="M8 19h9a3.5 3.5 0 0 0 .4-7A5 5 0 0 0 8 12.5 3.3 3.3 0 0 0 8 19z"/></svg>',
+ cloud:'<svg class="i" viewBox="0 0 24 24"><path d="M7 18h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 11a3.5 3.5 0 0 0 1 7z"/></svg>',
+ fog:'<svg class="i" viewBox="0 0 24 24"><path d="M7 13h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 6a3.5 3.5 0 0 0 1 7z"/><path d="M5 17h14M7 20.5h10"/></svg>',
+ rain:'<svg class="i" viewBox="0 0 24 24"><path d="M7 15h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 8a3.5 3.5 0 0 0 1 7z"/><path d="M8 18l-1 2.5M12 18l-1 2.5M16 18l-1 2.5"/></svg>',
+ snow:'<svg class="i" viewBox="0 0 24 24"><path d="M7 15h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 8a3.5 3.5 0 0 0 1 7z"/><path d="M8 19h.01M12 18.5h.01M16 19h.01M10 21.5h.01M14 21.5h.01"/></svg>',
+ storm:'<svg class="i" viewBox="0 0 24 24"><path d="M7 15h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 8a3.5 3.5 0 0 0 1 7z"/><path d="M12.5 16l-2 3h3l-2 3"/></svg>',
+ temp:'<svg class="i" viewBox="0 0 24 24"><path d="M10 14.5V5a2 2 0 0 1 4 0v9.5a4 4 0 1 1-4 0z"/><path d="M12 9v7"/></svg>'};
+function wIcon(c){c=+c;if(isNaN(c))return WI.temp;if(c===0)return WI.sun;if(c<=2)return WI.part;if(c===3)return WI.cloud;if(c<=48)return WI.fog;if(c<=67||(c>=80&&c<=82))return WI.rain;if(c<=77||c===85||c===86)return WI.snow;return WI.storm}
+function wText(c){c=+c;if(c===0)return "晴";if(c<=2)return "晴時多雲";if(c===3)return "陰";if(c<=48)return "有霧";if(c<=57)return "毛毛雨";if(c<=67||(c>=80&&c<=82))return "雨";if(c<=77||c===85||c===86)return "雪";return "雷雨"}
+const r0=v=>Math.round(+v);
 
-let D=null, tab=ls.get(TAB_KEY,"plan"), day=null, lastFetch=0, loading=false;
+let D=null, T=null, tab=ls.get(TAB_KEY,"plan"), day=null, lastFetch=0, loading=false;
 const S=n=>(D&&D[n])||[];
-function cfg(k){const r=S("設定").find(x=>x["項目"]===k);return r?r["內容"]:""}
+function cfg(...ks){for(const k of ks){const r=S("設定").find(x=>x["項目"]===k);if(r&&String(r["內容"]||"").trim())return String(r["內容"]).trim()}return ""}
+
+/* ---------- 日期工具：星期幾一律由日期計算 ---------- */
+const WK="日一二三四五六";
+const DAY=864e5;
+const md=d=>`${d.getMonth()+1}/${d.getDate()}`;
+const mdw=d=>`${md(d)}（${WK[d.getDay()]}）`;
+const today0=()=>{const d=new Date();d.setHours(0,0,0,0);return d};
+function parseYMD(s){const m=String(s||"").match(/(\d{4})\D(\d{1,2})\D(\d{1,2})/);return m?new Date(+m[1],+m[2]-1,+m[3]):null}
+/* 「11/18 14:00」「2026/11/18 14:00」「11/18（三）14:00 後」都可以 */
+function parseStamp(s,start){
+  s=String(s||"");let d=parseYMD(s);let rest=s;
+  if(d) rest=s.replace(/\d{4}\D\d{1,2}\D\d{1,2}/,"");
+  else{const m=s.match(/(\d{1,2})\/(\d{1,2})/);if(!m)return null;
+    d=new Date(start.getFullYear(),+m[1]-1,+m[2]);if(d<start-90*DAY)d.setFullYear(start.getFullYear()+1);
+    rest=s.replace(m[0],"");}
+  const t=rest.match(/(\d{1,2})[:：](\d{2})/);
+  return {date:d,time:t?t[1].padStart(2,"0")+":"+t[2]:""};
+}
+const hm2m=s=>{const m=String(s||"").match(/(\d{1,2})[:：](\d{2})/);return m?+m[1]*60+(+m[2]):null};
+const m2hm=v=>{v=((v%1440)+1440)%1440;return String(Math.floor(v/60)).padStart(2,"0")+":"+String(v%60).padStart(2,"0")};
+
+/* ---------- 由「設定」「住宿」「行程」推算整趟旅程 ---------- */
+function buildTrip(){
+  const start=parseYMD(cfg("出發日期"));if(!start){T=null;return}
+  const end=parseYMD(cfg("回程日期"));
+  let n=end?Math.round((end-start)/DAY)+1:Math.max(1,...S("行程").map(x=>+x["天"]||0),S("每日").length);
+  n=Math.min(Math.max(n,1),60);
+  const hotels=S("住宿").map(h=>({...h,_in:parseStamp(h["入住"],start),_out:parseStamp(h["退房"],start)}));
+  const days=[];
+  for(let i=0;i<n;i++){
+    const d=new Date(start.getFullYear(),start.getMonth(),start.getDate()+i);
+    const hotel=hotels.find(h=>h._in&&h._out&&h._in.date<=d&&d<h._out.date)||null;
+    const ov=S("每日").find(r=>String(r["天"])===String(i+1))||{};
+    days.push({i,date:d,hotel,ov});
+  }
+  const lead=parseFloat(cfg("接送提早小時","接送提早"));
+  T={start,end:days[n-1].date,n,days,hotels,city:cfg("城市","天氣城市"),lead:isNaN(lead)?null:lead};
+}
+function todayIndex(){if(!T)return -1;const k=Math.round((today0()-T.start)/DAY);return k>=0&&k<T.n?k:-1}
+
+/* ---------- 接送與住宿付款 ---------- */
 const booked=t=>/已/.test(t["預約狀態"]||"")&&!/未/.test(t["預約狀態"]||"");
 const trOf=k=>S("接送").find(x=>x["類型"]===k)||null;
-function trChip(t){return booked(t)?`<span class="st ok">已預約</span>`:`<span class="st no">尚未預約</span>`}
-function trSrc(t){return esc(t["預約來源"]||"")}
+const trChip=t=>booked(t)?`<span class="st ok">已預約</span>`:`<span class="st no">尚未預約</span>`;
+const trSrc=t=>esc(t["預約來源"]||"");
 const safeUrl=u=>/^https?:\/\//i.test(String(u||"").trim())?String(u).trim():"";
 function trLinks(t){const tel=String(t["電話"]||"").trim(),u=safeUrl(t["預約網址"]);
   return (tel?`<a class="tel" href="tel:${esc(tel.replace(/[^\d+]/g,""))}">${esc(tel)}</a>`:"")+(u?`<a class="tel" href="${esc(u)}" target="_blank" rel="noopener">預約網頁</a>`:"")}
 function payChip(h){const s=String(h["是否已付"]||"").trim();if(!s)return "";
   return s==="已付款"?`<span class="st ok">已付款</span>`:s==="到店付款"?`<span class="st due">到店付款</span>`:`<span class="st no">${esc(s)}</span>`}
-function hotel(name){return S("住宿").find(h=>h["名稱"]===name)||null}
+const needPay=h=>h&&/未付|到店/.test(h["是否已付"]||"");
 
-/* 時間欄：09:30 → 固定時間；早上/上午/中午/下午/傍晚/晚上 → 彈性時段；空白或「彈性」→ 有空再去 */
+/* ---------- 天氣 ---------- */
+function wxDay(i){const w=D&&D.weather;return w&&!w.error&&w.days?w.days[i]||null:null}
+function wxChip(i){const w=wxDay(i);if(!w||w.max==null)return "";const f=w.kind==="forecast";
+  return `<span class="wchip" title="${f?"天氣預報":"往年同期平均"}">${f?wIcon(w.code):WI.temp}${r0(w.min)}–${r0(w.max)}°${f&&w.pop!=null?`<small>${r0(w.pop)}%</small>`:`<small>${f?"":"往年"}</small>`}</span>`}
+
+/* ---------- 每天的項目：試算表的行程 + 自動產生的搭機行程 ---------- */
+const apQ=a=>a?`${a} 機場`:"";
+function autoItems(i){
+  const out=[],F=S("航班");
+  if(i===0){const g=F.find(x=>x["類型"]==="去程");
+    if(g){const dep=hm2m(g["起飛時間"]);
+      if(T.lead!=null&&dep!=null) out.push({"時間":m2hm(dep-T.lead*60),"類別":"交通","名稱":"機場接送上車","說明":`起飛前 ${T.lead} 小時，前往${g["出發機場"]||"機場"}`,_q:apQ(g["出發機場"]),_tr:trOf("去程")});
+      out.push({"時間":g["起飛時間"],"類別":"交通","名稱":`${g["航班"]||""} 起飛`,"說明":`${g["出發機場"]||""} → ${g["抵達機場"]||""}${g["艙等"]?`，${g["艙等"]}`:""}`,_q:apQ(g["出發機場"])});
+      if(g["抵達時間"]) out.push({"時間":g["抵達時間"],"類別":"交通","名稱":`抵達${g["抵達機場"]||""}`,"說明":"入境、領行李","_q":apQ(g["抵達機場"])});}}
+  if(i===T.n-1){const r=F.find(x=>x["類型"]==="回程");
+    if(r){const dep=hm2m(r["起飛時間"]),prev=i>0?T.days[i-1].hotel:null;
+      if(T.lead!=null&&dep!=null) out.push({"時間":m2hm(dep-T.lead*60),"類別":"交通","名稱":`退房，從${prev?prev["名稱"]:"飯店"}出發去機場`,"說明":`起飛前 ${T.lead} 小時出發，前往${r["出發機場"]||"機場"}`,_q:apQ(r["出發機場"])});
+      out.push({"時間":r["起飛時間"],"類別":"交通","名稱":`${r["航班"]||""} 起飛`,"說明":`${r["出發機場"]||""} → ${r["抵達機場"]||""}${r["艙等"]?`，${r["艙等"]}`:""}`,_q:apQ(r["出發機場"])});
+      if(r["抵達時間"]) out.push({"時間":r["抵達時間"],"類別":"交通","名稱":`抵達${r["抵達機場"]||""}`,"說明":trOf("回程")?"搭回程接送回家":"","_q":apQ(r["抵達機場"]),_tr:trOf("回程")});}}
+  return out;
+}
 const SECS=[["am","上午"],["pm","下午"],["ev","晚上"],["free","有空再去"]];
 function parseTime(t){
-  t=String(t||"").trim();
-  const m=t.match(/(\d{1,2})[:：](\d{2})/);
+  t=String(t||"").trim();const m=t.match(/(\d{1,2})[:：](\d{2})/);
   if(m){const mins=+m[1]*60+(+m[2]);return {fixed:true,mins,sec:mins<720?"am":mins<1080?"pm":"ev",label:m[1].padStart(2,"0")+":"+m[2]}}
   if(/早|上午/.test(t)) return {fixed:false,mins:480,sec:"am",label:t};
   if(/中午|午餐/.test(t)) return {fixed:false,mins:720,sec:"pm",label:t};
@@ -252,66 +334,81 @@ function parseTime(t){
   if(/傍晚|晚|夜/.test(t)) return {fixed:false,mins:1080,sec:"ev",label:t};
   return {fixed:false,mins:9999,sec:"free",label:""};
 }
-function startDate(){const m=cfg("出發日期").match(/(\d{4})\D(\d{1,2})\D(\d{1,2})/);return m?new Date(+m[1],+m[2]-1,+m[3]):null}
-function todayIndex(){const s=startDate();if(!s) return -1;const n=Math.round((new Date().setHours(0,0,0,0)-s)/864e5);return n>=0&&n<S("每日").length?n:-1}
-function chipDate(txt){const m=String(txt).match(/(\d{1,2})\/(\d{1,2})(?:\D*([一二三四五六日]))?/);return m?{n:m[2],w:m[3]?"週"+m[3]:m[1]+"月"}:{n:"",w:txt}}
+function dayItems(i){
+  const raw=S("行程").filter(x=>String(x["天"])===String(i+1)).concat(autoItems(i));
+  let last=0;
+  return raw.map((x,k)=>{const p=parseTime(x["時間"]);const key=p.fixed?p.mins:(p.sec==="free"?99999+k:Math.max(last,p.mins)+0.01*(k+1));if(p.fixed)last=p.mins;return {x,p,key}}).sort((a,b)=>a.key-b.key);
+}
+const cleanName=s=>String(s||"").replace(/^(早餐|午餐|晚餐|宵夜|下午茶)\s*/,"");
+function dayInfo(i){
+  const ov=T.days[i].ov||{};
+  const acts=S("行程").filter(x=>String(x["天"])===String(i+1)&&!/交通|住/.test(x["類別"]||"")).map(x=>cleanName(x["名稱"])).filter(Boolean);
+  const title=ov["標題"]||(acts.length?acts.slice(0,3).join("・"):i===0?"出發":i===T.n-1?"返台":`第 ${i+1} 天`);
+  const short=ov["簡稱"]||(i===0?"出發":i===T.n-1&&T.n>1?"返台":acts.length?acts[0].slice(0,5):`第 ${i+1} 天`);
+  return {title,short};
+}
 
+/* ---------- 畫面 ---------- */
 function renderShell(){
-  const title=cfg("標題")||"行程";document.title=title;$("title").textContent=title;
-  $("dates").innerHTML=esc(cfg("日期說明"))+(cfg("測試標記")?`<span class="tag">${esc(cfg("測試標記"))}</span>`:"");
-  const s=startDate(),days=S("每日").length||1;
-  let w="";
-  if(s){const n=Math.round((s-new Date().setHours(0,0,0,0))/864e5);
-    w=n>1?`還有<b>${n}</b>天出發`:n===1?"明天出發":n>-days?`旅程第<b>${1-n}</b>天`:"旅程已結束";}
+  buildTrip();
+  if(!T){$("app").innerHTML=`<div class="msg"><b>還沒設定出發日期</b><p>請在試算表「設定」分頁填入出發日期（例如 2026-11-18）和回程日期。</p></div>`;return}
+  const title=cfg("標題")||`${T.city||"旅程"} ${T.n} 天${T.n>1?` ${T.n-1} 夜`:""}`;
+  document.title=title;$("title").textContent=title;
+  $("dates").innerHTML=`${T.start.getFullYear()}/${md(T.start)}（${WK[T.start.getDay()]}）– ${md(T.end)}（${WK[T.end.getDay()]}）`;
+  const k=Math.round((T.start-today0())/DAY);
+  const w=k>1?`還有<b>${k}</b>天出發`:k===1?"明天出發":k>-T.n?`旅程第<b>${1-k}</b>天`:"旅程已結束";
   $("when").innerHTML=w+(cfg("旅客")?`<span class="who">　${esc(cfg("旅客"))}</span>`:"");
-  const f=S("航班"),ti=todayIndex(),lastI=S("每日").length-1;
-  /* 航班日期：去程取「每日」第一天，回程取最後一天 */
-  const fDate=k=>{const d=S("每日");const r=k==="回程"?d[d.length-1]:k==="去程"?d[0]:null;return r?String(r["日期"]||""):""};
-  const showF=ti<0||ti===0||ti===lastI;
-  const trRow=k=>{const x=trOf(k);if(!x) return "";
+  const ti=todayIndex(),showF=ti<0||ti===0||ti===T.n-1;
+  const fDate=t=>t==="去程"?mdw(T.start):t==="回程"?mdw(T.end):"";
+  const trRow=t=>{const x=trOf(t);if(!x)return "";
     return `<div class="tr"><span></span><span class="ct">${ICON.car}<span>機場接送</span>${trChip(x)}${x["預約來源"]?`<span>${trSrc(x)}</span>`:""}${trLinks(x)}</span></div>`};
-  $("flights").innerHTML=f.length&&showF?`<div class="flights">${f.map(x=>`<div class="fl ${x["類型"]==="回程"?"back":""}">
+  const F=S("航班");
+  $("flights").innerHTML=F.length&&showF?`<div class="flights">${F.map(x=>`<div class="fl ${x["類型"]==="回程"?"back":""}">
     <span class="k">${esc(x["類型"])}</span>
     <span class="rt"><b>${esc(x["起飛時間"])}</b><span class="ar">→</span><b>${esc(x["抵達時間"])}</b><span class="ap">${esc(x["出發機場"])} → ${esc(x["抵達機場"])}</span></span>
     <span class="no">${esc(x["航班"])}<br>${esc(fDate(x["類型"]))}${x["艙等"]?`<span class="cls">${esc(x["艙等"])}</span>`:""}</span></div>${trRow(x["類型"])}`).join("")}</div>`:"";
-  const s2=startDate(),ended=s2&&Math.round((s2-new Date().setHours(0,0,0,0))/864e5)<=-(S("每日").length||1);
-  const un=S("接送").filter(x=>!booked(x));
-  const unpaid=S("住宿").filter(h=>String(h["是否已付"]||"").trim()==="未付款");
-  const al=[];
-  if(un.length) al.push(`${un.map(x=>esc(x["類型"])).join("、")}接送尚未預約`);
-  if(unpaid.length) al.push(`${unpaid.length} 間住宿尚未付款`);
+  const ended=k<=-T.n,al=[];
+  const un=S("接送").filter(x=>!booked(x));if(un.length) al.push(`${un.map(x=>esc(x["類型"])).join("、")}接送尚未預約`);
+  const unpaid=S("住宿").filter(h=>String(h["是否已付"]||"").trim()==="未付款");if(unpaid.length) al.push(`${unpaid.length} 間住宿尚未付款`);
   $("alert").innerHTML=!ended&&al.length?al.map(a=>`<span class="alert">${ICON.alert}${a}</span>`).join(" "):"";
-  if(day===null){const ti=todayIndex();day=ti>=0?ti:0}
+  if(day===null) day=ti>=0?ti:0;
   $("tabbar").hidden=false;
   renderView();
 }
 
-const dayHotel=i=>{const r=S("每日")[i];return r?(r["住宿"]||"").trim():""};
-
 function renderPlan(v){
-  const days=S("每日");if(!days.length){v.innerHTML='<p class="empty">「每日」分頁還沒有資料。</p>';return}
-  day=Math.min(day,days.length-1);
-  const ti=todayIndex(),cur=days[day],dn=String(cur["天"]);
-  const raw=S("行程").filter(x=>String(x["天"])===dn);
-  const trK=day===0?"去程":day===days.length-1?"回程":"";const trX=trK?trOf(trK):null;
-
-  let last=0;const items=raw.map((x,i)=>{const p=parseTime(x["時間"]);const key=p.fixed?p.mins:(p.sec==="free"?99999+i:Math.max(last,p.mins)+0.01*(i+1));if(p.fixed)last=p.mins;return {x,p,key}}).sort((a,b)=>a.key-b.key);
-
-  const hn=dayHotel(day),prev=day>0?dayHotel(day-1):"",h=hn?hotel(hn):null;
+  day=Math.min(day,T.n-1);
+  const ti=todayIndex(),cur=T.days[day],items=dayItems(day),info=dayInfo(day);
+  const h=cur.hotel,prev=day>0?T.days[day-1].hotel:null;
   let rem="";
-  if(hn){const moving=prev&&prev!==hn;
-    rem+=`<div class="rrow"><span class="ic">${ICON.bed}</span><div class="main">${moving?"今天換飯店，今晚住":"今晚住"}<span class="nm">${esc(hn)}</span>
-      ${h&&h["地址"]?`<div class="sub">${esc(h["地址"])}</div>`:""}${h&&/未付|到店/.test(h["是否已付"]||"")&&(moving||day===0)?`<div class="sub">入住時記得付款${h["費用"]?`：${esc(h["費用"])}`:""}</div>`:""}${moving?`<div class="sub">記得從${esc(prev)}退房、帶走行李</div>`:""}</div>
-      <a class="lk" href="${gUrl((h&&h["地圖關鍵字"])||hn)}" target="_blank" rel="noopener">地圖</a></div>`;
-  } else if(day===days.length-1){const r=S("航班").find(f=>f["類型"]==="回程");
-    if(r) rem+=`<div class="rrow"><span class="ic">${ICON.plane}</span><div class="main">今天返台，<b>${esc(r["起飛時間"])}</b> ${esc(r["航班"])} 起飛<div class="sub">${esc(r["出發機場"])}${prev?`，記得從${esc(prev)}退房`:""}</div></div></div>`;}
-  if(trX){const lk=trLinks(trX);const tr=`<div class="rrow"><span class="ic">${ICON.car}</span><div class="main">${trK==="去程"?"去機場":"回家"}的機場接送 ${trChip(trX)}
-    ${trX["預約來源"]?`<div class="sub">${trSrc(trX)}</div>`:""}${trX["備註"]?`<div class="sub">${esc(trX["備註"])}</div>`:""}${lk?`<div class="sub lks">${lk}</div>`:""}</div></div>`;rem=day===0?tr+rem:rem+tr;}
+  const wd=wxDay(day);
+  if(wd&&wd.kind==="forecast"&&wd.max!=null){
+    const umb=wd.pop!=null&&wd.pop>=50,cold=wd.min!=null&&wd.min<=5;
+    rem+=`<div class="rrow"><span class="ic">${wIcon(wd.code)}</span><div class="main">${wText(wd.code)}，${r0(wd.min)}～${r0(wd.max)}°C${wd.pop!=null?`，降雨機率 ${r0(wd.pop)}%`:""}
+      ${umb||cold?`<div class="sub">${[umb?"記得帶傘":"",cold?"早晚很冷，多穿一件":""].filter(Boolean).join("，")}</div>`:""}</div></div>`;
+  }
+  const trK=day===0?"去程":day===T.n-1?"回程":"",trX=trK?trOf(trK):null;
+  const trHtml=trX?(()=>{const lk=trLinks(trX);return `<div class="rrow"><span class="ic">${ICON.car}</span><div class="main">${trK==="去程"?"去機場":"回家"}的機場接送 ${trChip(trX)}
+    ${trX["預約來源"]?`<div class="sub">${trSrc(trX)}</div>`:""}${trX["備註"]?`<div class="sub">${esc(trX["備註"])}</div>`:""}${lk?`<div class="sub lks">${lk}</div>`:""}</div></div>`})():"";
+  if(day===0) rem+=trHtml;
+  if(h){
+    const moving=prev&&prev["名稱"]!==h["名稱"],checkin=h._in&&+h._in.date===+cur.date;
+    rem+=`<div class="rrow"><span class="ic">${ICON.bed}</span><div class="main">${moving?"今天換飯店，今晚住":"今晚住"}<span class="nm">${esc(h["名稱"])}</span>
+      ${h["地址"]?`<div class="sub">${esc(h["地址"])}</div>`:""}
+      ${checkin&&h._in.time?`<div class="sub">${esc(h._in.time)} 後可入住</div>`:""}
+      ${moving?`<div class="sub">記得從${esc(prev["名稱"])}退房、帶走行李</div>`:""}
+      ${checkin&&needPay(h)?`<div class="sub">入住時記得付款${h["費用"]?`：${esc(h["費用"])}`:""}</div>`:""}</div>
+      ${mapBtn(h["地圖關鍵字"]||h["名稱"])}</div>`;
+  } else if(day===T.n-1&&T.n>1){
+    const r=S("航班").find(f=>f["類型"]==="回程");
+    if(r) rem+=`<div class="rrow"><span class="ic">${ICON.plane}</span><div class="main">今天返台，<b>${esc(r["起飛時間"])}</b> ${esc(r["航班"])} 起飛<div class="sub">${esc(r["出發機場"])}${prev?`，記得從${esc(prev["名稱"])}退房`:""}</div></div></div>`;
+  }
+  if(day!==0) rem+=trHtml;
   items.filter(o=>o.x["訂位"]).forEach(o=>{rem+=`<div class="rrow"><span class="ic">${ICON.bell}</span><div class="main">${esc(o.x["訂位"])}<div class="sub">${esc(o.x["名稱"])}</div></div></div>`});
 
-  let html=`<div class="days" role="tablist">${days.map((x,i)=>{const c=chipDate(x["日期"]);return `<button class="day" role="tab" aria-selected="${i===day}" data-d="${i}" aria-label="第 ${esc(x["天"])} 天 ${esc(x["日期"])}">
-    ${i===ti?'<span class="dot" title="今天"></span>':""}<span class="w">${esc(c.w)}</span><span class="n">${esc(c.n||x["天"])}</span><span class="p">${esc(x["簡稱"])}</span></button>`}).join("")}</div>
-    <div class="dayhead"><h2>${esc(cur["標題"])}</h2></div>
+  let html=`<div class="days" role="tablist">${T.days.map((d,i)=>`<button class="day" role="tab" aria-selected="${i===day}" data-d="${i}" aria-label="第 ${i+1} 天 ${mdw(d.date)}">
+    ${i===ti?'<span class="dot" title="今天"></span>':""}<span class="w">週${WK[d.date.getDay()]}</span><span class="n">${d.date.getDate()}</span><span class="p">${esc(dayInfo(i).short)}</span></button>`).join("")}</div>
+    <div class="dayhead"><h2>${esc(info.title)}</h2>${wxChip(day)}</div>
     ${rem?`<section class="remind" aria-label="今天記得">${rem}</section>`:""}`;
   SECS.forEach(([k,label])=>{
     const g=items.filter(o=>o.p.sec===k);if(!g.length) return;
@@ -319,18 +416,22 @@ function renderPlan(v){
       <time>${p.fixed?esc(p.label):esc(k!=="free"&&p.label!==label?p.label:"")}</time><span class="rail" aria-hidden="true"></span>
       <div class="body"><div class="bd"><div class="tt">${esc(x["名稱"])}${x["類別"]?`<span class="k">${esc(x["類別"])}</span>`:""}</div>
       ${x["說明"]?`<p>${esc(x["說明"])}</p>`:""}${x["訂位"]?`<div class="resv">${ICON.bell}${esc(x["訂位"])}</div>`:""}
-      </div>
-      ${mapBtn(x["地圖關鍵字"]||x["名稱"])}</div></li>`).join("")}</ol></section>`;
+      ${x._tr?`<div class="resv ${booked(x._tr)?"ok":""}">${ICON.car}${booked(x._tr)?"接送已預約":"接送尚未預約"}</div>`:""}</div>
+      ${mapBtn(x._q!==undefined?x._q:(x["地圖關鍵字"]||x["名稱"]))}</div></li>`).join("")}</ol></section>`;
   });
   html+=items.length?`<div class="legend"><span><i></i>固定時間</span><span><i class="o"></i>彈性安排</span></div>`:'<p class="empty">這天還沒有安排行程。</p>';
   v.innerHTML=html;
 }
 function renderStay(v){
-  const hs=S("住宿");
-  v.innerHTML=`<h2 class="ptitle">住宿</h2>`+(hs.length?`<ul class="list">${hs.map(h=>`<li class="hotel"><div class="tt">${esc(h["名稱"])}</div>
-    <div class="when2">${h["入住"]?`<span>入住 ${esc(h["入住"])}</span>`:""}${h["退房"]?`<span class="o">退房 ${esc(h["退房"])}</span>`:""}</div>
-    ${h["地址"]?`<div class="addr">${esc(h["地址"])}</div>`:""}${h["費用"]||h["預訂平台"]||h["是否已付"]?`<div class="pay">${h["費用"]?`<span><span class="lb">費用</span> ${esc(h["費用"])}</span>`:""}${h["預訂平台"]?`<span><span class="lb">訂房</span> ${esc(h["預訂平台"])}</span>`:""}${payChip(h)}</div>`:""}${h["備註"]?`<p>${esc(h["備註"])}</p>`:""}
-    ${maps(h["地圖關鍵字"]||h["名稱"])}</li>`).join("")}</ul>`:'<p class="empty">「住宿」分頁還沒有資料。</p>');
+  const hs=T.hotels;
+  const stamp=(s,suf)=>s?`${mdw(s.date)}${s.time?` ${s.time} ${suf}`:""}`:"";
+  v.innerHTML=`<h2 class="ptitle">住宿</h2>`+(hs.length?`<ul class="list">${hs.map(h=>{
+    const nights=h._in&&h._out?Math.round((h._out.date-h._in.date)/DAY):0;
+    return `<li class="hotel"><div class="tt">${esc(h["名稱"])}${nights>0?`<span class="k">${nights} 晚</span>`:""}</div>
+    <div class="when2">${h["入住"]?`<span>入住 ${esc(stamp(h._in,"後")||h["入住"])}</span>`:""}${h["退房"]?`<span class="o">退房 ${esc(stamp(h._out,"前")||h["退房"])}</span>`:""}</div>
+    ${h["地址"]?`<div class="addr">${esc(h["地址"])}</div>`:""}
+    ${h["費用"]||h["預訂平台"]||h["是否已付"]?`<div class="pay">${h["費用"]?`<span><span class="lb">費用</span> ${esc(h["費用"])}</span>`:""}${h["預訂平台"]?`<span><span class="lb">訂房</span> ${esc(h["預訂平台"])}</span>`:""}${payChip(h)}</div>`:""}
+    ${h["備註"]?`<p>${esc(h["備註"])}</p>`:""}${maps(h["地圖關鍵字"]||h["名稱"])}</li>`}).join("")}</ul>`:'<p class="empty">「住宿」分頁還沒有資料。</p>');
 }
 function renderList(v){
   const block=(t,L)=>L.length?`<h3 class="h3">${t}</h3><ul class="list">${L.map(x=>`<li><div class="tt">${esc(x["名稱"])}</div>${x["說明"]?`<p>${esc(x["說明"])}</p>`:""}${maps(x["地圖關鍵字"]||x["名稱"])}</li>`).join("")}</ul>`:"";
@@ -338,25 +439,31 @@ function renderList(v){
 }
 function renderNotes(v){
   const groups={};S("須知").forEach(x=>{const g=x["分類"]||"其他";(groups[g]=groups[g]||[]).push(x["內容"])});
-  const wx=S("天氣");
-  v.innerHTML=`<h2 class="ptitle">須知</h2>`+(wx.length?`<h3 class="h3">天氣（往年同期參考）</h3><div class="wx" style="grid-template-columns:repeat(${Math.min(wx.length,7)},1fr)">${wx.map(w=>`<div>${esc(w["日期"])}<b>${esc(w["溫度"])}</b></div>`).join("")}</div>
-    ${cfg("天氣說明")?`<p class="empty" style="margin-top:8px">${esc(cfg("天氣說明"))}</p>`:""}`:"")
+  const W=D.weather;let wxh="";
+  if(W&&!W.error&&W.days&&W.days.length){
+    const anyF=W.days.some(d=>d.kind==="forecast"),allF=W.days.every(d=>d.kind==="forecast");
+    wxh=`<h3 class="h3">${esc(W.city||T.city||"")}天氣</h3><div class="wgrid" style="grid-template-columns:repeat(${Math.min(W.days.length,7)},1fr)">${W.days.map((d,i)=>{
+      const dt=T.days[i]?T.days[i].date:null,f=d.kind==="forecast";
+      return `<div class="wcell">${dt?`週${WK[dt.getDay()]}<br>${md(dt)}`:""}${f?wIcon(d.code):WI.temp}<b>${d.max!=null?`${r0(d.min)}–${r0(d.max)}°`:"—"}</b>${f&&d.pop!=null?`<span class="rain">${r0(d.pop)}%</span>`:`<span>${f?"":"往年"}</span>`}</div>`}).join("")}</div>
+      <p class="wcap">${allF?"每日天氣預報":anyF?"有預報的日子顯示天氣預報，其餘為往年同期平均":"往年同期平均氣溫（近 3 年），出發前 16 天內會自動換成每日預報"}，資料來源 Open-Meteo</p>`;
+  } else if(W&&W.error==="nocity"){wxh=`<p class="empty">找不到「${esc(W.city)}」的天氣，請確認「設定」的城市名稱。</p>`}
+  v.innerHTML=`<h2 class="ptitle">須知</h2>`+wxh+(cfg("天氣說明")?`<p class="empty" style="margin-top:8px">${esc(cfg("天氣說明"))}</p>`:"")
     +`<div class="notes">${Object.keys(groups).map(g=>`<h3>${esc(g)}</h3><ul>${groups[g].map(c=>`<li>${esc(c)}</li>`).join("")}</ul>`).join("")}</div>`;
 }
 function renderView(){
   document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.v===tab));
   $("hero").classList.toggle("compact",tab!=="plan"&&!!D);
   $("flights").hidden=tab!=="plan";
-  const v=$("app");if(!D) return;
+  const v=$("app");if(!D||!T) return;
   ({plan:renderPlan,stay:renderStay,list:renderList,notes:renderNotes}[tab]||renderPlan)(v);
 }
 
 /* ---------- 登入與資料讀取 ---------- */
 function setStatus(t){$("status").textContent=t}
 function fmt(iso){const d=new Date(iso);return isNaN(d)?"":`${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}`}
-function clearHeader(){$("title").textContent="行程";$("dates").textContent="";$("when").textContent="";$("flights").innerHTML="";$("tabbar").hidden=true;document.title="行程"}
+function clearHeader(){$("title").textContent="行程";$("dates").textContent="";$("when").textContent="";$("flights").innerHTML="";$("alert").innerHTML="";$("tabbar").hidden=true;document.title="行程"}
 function showLogin(msg,isErr){
-  D=null;clearHeader();setStatus("");$("refresh").hidden=true;$("logout").hidden=true;
+  D=null;T=null;clearHeader();setStatus("");$("refresh").hidden=true;$("logout").hidden=true;
   $("app").innerHTML=`<form class="msg login" id="loginForm"><b>請輸入密碼</b>
     <p class="${isErr?"err":""}">${esc(msg||"輸入一次後，這支手機會記住密碼，下次打開不用再輸入。")}</p>
     <input id="pw" class="pwin" type="password" autocomplete="current-password" aria-label="密碼" placeholder="密碼">

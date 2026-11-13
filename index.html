@@ -6,249 +6,394 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="上海行">
-<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAE2klEQVR4nO3cS07jQBhFYWgxZ1cMEGMWyRJYG4MeRGqhTq7tVP2PW8755sSu8qHs2Ibn14/3J+CWP907AF/EAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAPSS/cO9Pj+vHvgb18/GXvi7CHiGEjhyIecPpfTxhESxPFNnDKUs8VR0MT2ds9UyUni6Gri2pkqcZnTMT5NXDtBJb6Tu20yi4EDNrzFyw+umMjz68d79z7cZ+wghR8bk91ItVIc9x6PsiNhu2OT1ojj+Oy3z/tCu7prgTgOTrfVXK+4z9es4zgyxebzu/QQfOPYnVbbOb226Fgc41h0KnctNy67OLZn0G36Biw0QK/3ORaauGHbo7C65+uycjxCFv/xH7LFyuE/TRn8l5D+lWNjFlKzuGv2u/ak9xejOY7KeQn8Xazct8Y+OuOomZHU9blmP7v6aItDzUXURBSfs7N3u6WPnjjypqD9Oi5vCPV9NMSRNPj2LH5LGktxH9VxZAx7OIuDG83+/Ls2WtlHaRztZYTMbNkW2/voX4qHh9r1zsTvD9zdh5kXSN++fnrPlXUrx81xppZh9Zpg7EhrhlYUR+AInR98J+1bVx8Vz1YC18bdpzC995t3d6BsKkK0PXgL/8sRn+dz4X2c9g5p1JJoeHd5V+w+159ccuMIGc8qC8ZNsTtf3IfF+xwbtn/5zMt42ttJq7u61xLjmM98xVPJTVF93PycvMKy4khdANcq4yJ17El9+C5rNTePK++aqDue358vnrmnXJDmnVDqH46UbX1+fsILK4rDoQyf1wST+lggjsmow8vwfE1wfpgFi0fFV9n5PfYsY+bzG+fkuOA4Jg9G7PO5mrsIwxvK+N4RO+Tg08rMibDyye3xz8/+ZyzhZ+HAFSUyNIf7feGvVhx/tcfkH8MFfjHOveYoXjaO3LSYmbgjPx7y/8FM/neUxbOVmudzgfcoYx/KF98UPy4sjt7B1D+fc36iFrX1xJVj5sX/VZ7POTxRe6xH9lG3U2uuDTc25POH/GNi4hj+QpX0tb5+okP6GP7x662HnFnsVo4lbh0mbddt8bCL47jGP+hQbL93jAmIY3jwM7NmWMbGPoSPNPUH/0lZOYYPksPR7WU1dUueVmyXjYvTnFza4oj9guNTxkXsfYuusGbjWPEX4nFMHp34lcPnHkOvE8xDz2ml8Qq811oDd7kgtbpKj7L6oFzigKGV4ih4GT+cz1ePAVNxrHi0zi22xYaVY6FfHSv182ZxWmG9ueYwJxZxHLHuKWzdy45l4kA94oBEHJCIA9LU38qucmH14Iav3Fk5IBEHJOKARByQiAMScUCa+i66ytMNjGHlgEQckIgDEnFAIg5IxAGJOCARByTigEQckIgDEnFAIg5IxAGJOCARByTigEQckIgDEnFAIg5IxAHpLy2gYuUZAxdSAAAAAElFTkSuQmCC">
+<meta name="apple-mobile-web-app-title" content="行程">
+<meta name="theme-color" content="#4A6784">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
 <title>行程</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --jade:#0F4C4A; --jade-2:#16625F; --brass:#B8893B; --brass-soft:#E9D9B4;
-  --red:#A8392C; --bg:#ECF1EC; --card:#FFFFFF; --ink:#1A2422; --muted:#5E6E6A; --line:#D3DDD7;
-  --chip:#E1EAE4; --done:#9AA8A3;
+  --bg:#FFFFFF; --ink:#33404B; --muted:#6B7580; --soft:#B4BBC2; --line:#EDEFF2;
+  --blue:#6F8DAA; --blue-ink:#4F6D8A; --blue-soft:#EEF3F7; --on-blue:#FFFFFF;
+  --hero:#4A6784; --pink:#C98F96; --pink-soft:#FAF0F1; --pink-line:#F0D9DC; --card:#FFFFFF; --shadow:0 1px 2px rgba(54,66,77,.06),0 4px 14px rgba(54,66,77,.05);
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --jade:#0B3634; --jade-2:#1E7470; --brass:#D2A957; --brass-soft:#4A3E25;
-    --red:#E0715F; --bg:#0E1615; --card:#17221F; --ink:#E7EEEA; --muted:#9BAAA5; --line:#2A3833;
-    --chip:#1F2C29; --done:#5B6965; color-scheme: dark;
+    --bg:#1E2329; --ink:#E6E8EA; --muted:#A9B1B9; --soft:#5E6872; --line:#2E353C;
+    --blue:#93AECA; --blue-ink:#B3C8DD; --blue-soft:#26303A; --on-blue:#1E2329;
+    --hero:#2F4559; --pink:#E2B1B7; --pink-soft:#4A3A40; --pink-line:#5A474D; --card:#252B31; --shadow:none; color-scheme: dark;
   }
 }
 :root[data-theme="dark"]{
-  --jade:#0B3634; --jade-2:#1E7470; --brass:#D2A957; --brass-soft:#4A3E25;
-  --red:#E0715F; --bg:#0E1615; --card:#17221F; --ink:#E7EEEA; --muted:#9BAAA5; --line:#2A3833;
-  --chip:#1F2C29; --done:#5B6965; color-scheme: dark;
+  --bg:#1E2329; --ink:#E6E8EA; --muted:#A9B1B9; --soft:#5E6872; --line:#2E353C;
+  --blue:#93AECA; --blue-ink:#B3C8DD; --blue-soft:#26303A; --on-blue:#1E2329;
+  --hero:#2F4559; --pink:#E2B1B7; --pink-soft:#4A3A40; --pink-line:#5A474D; --card:#252B31; --shadow:none; color-scheme: dark;
 }
-:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *,*::before,*::after{box-sizing:inherit}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;-webkit-text-size-adjust:100%}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--jade)}
-.serif{font-family:"Noto Serif TC","Songti TC",serif}
-a{color:inherit}
-.wrap{max-width:560px;margin:0 auto;padding:0 16px 48px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Noto Sans TC",-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;-webkit-text-size-adjust:100%;padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--hero)}
+a{color:inherit} button{font-family:inherit;color:inherit}
+.wrap{max-width:520px;margin:0 auto}
+svg.i{width:18px;height:18px;flex:none;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 
 /* hero */
-.hero{background:var(--jade);color:#F4EEDD;margin:0 -16px;padding:22px 20px 0;position:relative;overflow:hidden}
-.hero h1{font-family:"Noto Serif TC","Songti TC",serif;font-weight:900;font-size:34px;line-height:1.15;margin:0;letter-spacing:.04em}
-.hero .sub{margin:6px 0 0;color:#CFE0DA;font-size:14px}
-.hero .who{font-size:13px;color:#CFE0DA;margin-top:2px}
-.deco{display:block;width:100%;height:84px;margin-top:14px}
-.count{display:flex;align-items:baseline;gap:10px;margin-top:16px}
-.count b{font-family:"Noto Serif TC",serif;font-size:64px;line-height:1;color:var(--brass);font-weight:900}
-.count span{font-size:15px;color:#E6DCC2}
-.test{display:inline-block;font-size:12px;border:1px solid #C9A24E;color:#E6D2A0;border-radius:4px;padding:0 6px;margin-left:6px;vertical-align:middle}
+.hero{background:var(--hero);color:#fff;padding:22px 22px 20px;border-radius:0 0 28px 28px}
+.hero .dates{font-size:13px;color:rgba(255,255,255,.75);margin:0}
+.hero h1{margin:4px 0 0;font-size:30px;font-weight:500;letter-spacing:.04em;line-height:1.25}
+.hero .when{margin:6px 0 0;font-size:14px;color:rgba(255,255,255,.9)}
+.hero .when b{font-size:20px;font-weight:500;margin:0 3px}
+.hero .who{font-size:13px;color:rgba(255,255,255,.75)}
+.tag{display:inline-block;font-size:11px;color:#fff;background:rgba(255,255,255,.18);border-radius:999px;padding:0 8px;margin-left:6px;vertical-align:2px}
+.flights{margin-top:14px;background:var(--card);color:var(--ink);border-radius:16px;padding:4px 14px;box-shadow:var(--shadow)}
+.fl{display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:8px;padding:9px 0;font-size:14px}
+.fl+.fl{border-top:1px solid var(--line)}
+.fl .k{font-size:12px;color:var(--blue-ink);background:var(--blue-soft);border-radius:6px;text-align:center;padding:1px 0}
+.fl.back .k{color:var(--pink);background:var(--pink-soft)}
+.fl .rt{font-variant-numeric:tabular-nums}
+.fl .rt{line-height:1.35}
+.fl .rt b{font-weight:500;font-size:16px}
+.fl .rt .ap{display:block;color:var(--muted);font-size:12px}
+.fl .rt .ar{color:var(--muted);margin:0 6px}
+.fl .no{font-size:12px;color:var(--muted);text-align:right;line-height:1.3}
+.fl .cls{display:block;margin-top:2px;color:var(--blue-ink)}
 
-/* flights */
-.flights{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
-.flt{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;position:relative}
-.flt .tag{font-size:12px;font-weight:700;color:var(--jade-2)}
-.flt.back .tag{color:var(--red)}
-.flt .no{position:absolute;right:12px;top:12px;font-size:12px;color:var(--muted)}
-.flt .t{display:flex;justify-content:space-between;align-items:baseline;margin-top:4px}
-.flt .t strong{font-size:22px;font-variant-numeric:tabular-nums}
-.flt .ap{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
-.flt .d{font-size:12px;color:var(--muted);border-top:1px dashed var(--line);margin-top:8px;padding-top:6px}
+.hero.compact{padding:16px 22px 14px}
+.hero.compact h1{font-size:22px}
+.hero.compact .dates{display:none}
+.alert{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:13px;background:var(--pink);color:#fff;border-radius:999px;padding:3px 12px 3px 9px}
+.alert svg{width:15px;height:15px}
+.tr{display:grid;grid-template-columns:44px 1fr;gap:8px;padding:0 0 10px;font-size:13px;color:var(--muted)}
+.tr .ct{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px}
+.st{font-size:12px;border-radius:999px;padding:0 8px;white-space:nowrap}
+.st.ok{background:var(--blue-soft);color:var(--blue-ink)}
+.st.no{background:var(--pink);color:#fff}
+.st.due{background:var(--pink-soft);color:var(--pink)}
+.hotel .pay{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin-top:8px;font-size:14px}
+.hotel .pay .lb{color:var(--muted)}
+.mapbtn{position:relative}
+.mapbtn summary{list-style:none;cursor:pointer;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:var(--blue-ink);background:var(--blue-soft)}
+.mapbtn summary::-webkit-details-marker{display:none}
+.mapbtn summary svg{width:17px;height:17px}
+.mapbtn .pop{position:absolute;right:0;top:40px;z-index:6;background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.12);padding:4px;min-width:130px}
+.mapbtn .pop a{display:block;padding:8px 12px;font-size:14px;text-decoration:none;color:var(--ink);border-radius:8px}
+.mapbtn .pop a:active{background:var(--blue-soft)}
+.body{display:grid;grid-template-columns:1fr auto;gap:0 10px;align-items:start}
+.body .bd{min-width:0}
+.tel{color:var(--blue-ink);text-decoration:none}
+.lks{display:flex;gap:14px;margin-top:2px}
+.tr .tel{white-space:nowrap}
+main{padding:0 20px}
 
-.block{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:10px}
-.block h3{margin:0 0 6px;font-size:15px;font-family:"Noto Serif TC",serif}
-.hotel a.name{font-weight:700;text-decoration:none;border-bottom:1px solid var(--brass)}
-.small{font-size:13px;color:var(--muted)}
-.maps{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:4px;font-size:13px;padding:6px 10px;border-radius:999px;background:var(--chip);color:var(--ink);text-decoration:none;border:0;cursor:pointer;font-family:inherit}
-.btn.g{background:var(--jade-2);color:#fff}
-.wx{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:6px}
-.wx div{text-align:center;background:var(--chip);border-radius:10px;padding:6px 2px;font-size:12px}
-.wx .i{font-size:20px;line-height:1.4}
-.wx .tmp{font-variant-numeric:tabular-nums}
+/* day chips */
+.days{display:flex;gap:8px;margin:20px -20px 0;padding:0 20px 4px;overflow-x:auto;scrollbar-width:none}
+.days::-webkit-scrollbar{display:none}
+.day{flex:0 0 auto;min-width:62px;border:0;background:transparent;border-radius:16px;padding:8px 6px;text-align:center;cursor:pointer;position:relative}
+.day .w{display:block;font-size:12px;color:var(--muted)}
+.day .n{display:block;font-size:22px;font-weight:500;line-height:1.2}
+.day .p{display:block;font-size:12px;color:var(--muted);white-space:nowrap}
+.day[aria-selected="true"]{background:var(--hero);color:#fff}
+.day[aria-selected="true"] .w,.day[aria-selected="true"] .p{color:#fff;opacity:.8}
+.day .dot{position:absolute;top:7px;right:9px;width:6px;height:6px;border-radius:50%;background:var(--pink)}
 
-/* tabs */
-.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);margin:14px -16px 0;padding:10px 16px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
-.tabs::-webkit-scrollbar{display:none}
-.tab{flex:none;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:7px 16px;font-size:15px;font-family:inherit;cursor:pointer}
-.tab[aria-selected="true"]{background:var(--jade);border-color:var(--jade);color:#F4EEDD}
-.tab:focus-visible,.btn:focus-visible,.day:focus-visible,.chk:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
+.dayhead{margin:18px 0 0}
+.dayhead h2{margin:0;font-size:21px;font-weight:500}
 
-/* days */
-.days{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:6px}
-.day{border:0;background:none;padding:6px 0;cursor:pointer;font-family:inherit;color:var(--muted);text-align:center}
-.day .n{display:block;font-family:"Noto Serif TC",serif;font-weight:900;font-size:20px;color:var(--ink)}
-.day .p{font-size:12px}
-.day[aria-selected="true"]{color:var(--jade-2)}
-.day[aria-selected="true"] .n{color:var(--brass);text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px}
-.prog{height:4px;background:var(--line);border-radius:4px;margin:10px 0 4px;overflow:hidden}
-.prog i{display:block;height:100%;background:var(--brass);transition:width .3s}
-.dayhead h2{font-family:"Noto Serif TC",serif;font-size:21px;margin:10px 0 2px}
+/* reminder */
+.remind{margin-top:14px;background:var(--pink-soft);border-radius:18px;padding:6px 16px}
+.rrow{display:flex;gap:12px;align-items:flex-start;padding:10px 0}
+.rrow+.rrow{border-top:1px solid var(--pink-line)}
+.rrow .ic{color:var(--pink);margin-top:3px}
+.rrow .main{flex:1;min-width:0;font-size:15px}
+.rrow .main b{font-weight:500}
+.rrow .main .nm{display:block;font-weight:500}
+.rrow .sub{font-size:13px;color:var(--muted)}
+.rrow a.lk{font-size:13px;color:var(--pink);text-decoration:none;white-space:nowrap;margin-top:2px}
 
-.tl{list-style:none;margin:12px 0 0;padding:0;position:relative}
-.tl::before{content:"";position:absolute;left:52px;top:6px;bottom:6px;width:2px;background:var(--line)}
-.tl li{display:grid;grid-template-columns:44px 20px 1fr;gap:8px;padding:0 0 14px}
-.tl time{font-size:13px;font-weight:700;color:var(--jade-2);font-variant-numeric:tabular-nums;padding-top:12px;text-align:right}
-.chk{width:20px;height:20px;border-radius:50%;border:2px solid var(--brass);background:var(--bg);margin-top:13px;cursor:pointer;padding:0;position:relative;z-index:1}
-.chk[aria-pressed="true"]{background:var(--brass)}
-.chk[aria-pressed="true"]::after{content:"✓";color:#fff;font-size:12px;position:absolute;inset:0;display:grid;place-items:center}
-.item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
-.item .tt{font-weight:700}
-.item .k{font-size:12px;color:var(--brass);font-weight:700;margin-right:6px}
-.item p{margin:2px 0 0;font-size:14px;color:var(--muted)}
-.done .item{opacity:.55}
-.done .tt{text-decoration:line-through;text-decoration-color:var(--done)}
+/* timeline */
+.sec{margin-top:24px}
+.sec h3{margin:0 0 4px;font-size:13px;font-weight:500;color:var(--muted)}
+.tl{list-style:none;margin:0;padding:0}
+.it{display:grid;grid-template-columns:48px 14px 1fr;column-gap:10px}
+.it time{font-size:15px;font-weight:500;color:var(--blue-ink);text-align:right;padding-top:11px;font-variant-numeric:tabular-nums}
+.it.flex time{font-size:12px;font-weight:400;color:var(--muted);padding-top:13px}
+.rail{position:relative}
+.rail::before{content:"";position:absolute;left:6px;top:0;bottom:0;width:2px;background:var(--line)}
+.rail::after{content:"";position:absolute;left:1px;top:17px;width:12px;height:12px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 3px var(--bg)}
+.it.flex .rail::after{background:var(--bg);border:2px solid var(--soft)}
+.it:first-child .rail::before{top:17px}
+.it:last-child .rail::before{bottom:auto;height:17px}
+.body{padding:8px 0 14px}
+.body .tt{font-weight:500;font-size:16px}
+.body .k{font-size:12px;color:var(--muted);margin-left:6px;font-weight:400}
+.body p{margin:2px 0 0;font-size:14px;color:var(--muted)}
+.resv{display:inline-flex;align-items:center;gap:6px;margin-top:6px;font-size:13px;background:var(--pink-soft);color:var(--ink);border-radius:999px;padding:3px 10px 3px 8px}
+.resv svg{color:var(--pink);width:15px;height:15px}
+.resv.ok{background:var(--blue-soft)}
+.resv.ok svg{color:var(--blue-ink)}
+.maps{display:flex;gap:14px;margin-top:4px;font-size:13px}
+.maps a{color:var(--blue-ink);text-decoration:none;display:inline-flex;align-items:center;gap:3px}
+.maps svg{width:14px;height:14px}
+.legend{display:flex;gap:16px;font-size:12px;color:var(--muted);margin-top:14px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:10px;height:10px;border-radius:50%;background:var(--blue);display:inline-block}
+.legend i.o{background:transparent;border:2px solid var(--soft)}
 
-.list{list-style:none;padding:0;margin:10px 0 0}
-.list li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:8px}
-.list .tt{font-weight:700}
+/* other pages */
+.ptitle{margin:22px 0 0;font-size:21px;font-weight:500}
+.list{list-style:none;padding:0;margin:12px 0 0}
+.list li{background:var(--card);border-radius:18px;padding:14px 16px;margin-bottom:10px;box-shadow:var(--shadow);border:1px solid var(--line)}
+.list .tt{font-weight:500}
 .list p{margin:2px 0 0;font-size:14px;color:var(--muted)}
-.notes h3{font-family:"Noto Serif TC",serif;font-size:16px;margin:16px 0 6px}
+.hotel .when2{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.hotel .when2 span{font-size:13px;background:var(--blue-soft);color:var(--blue-ink);border-radius:999px;padding:2px 10px}
+.hotel .when2 span.o{background:var(--pink-soft);color:var(--pink)}
+.hotel .addr{font-size:14px;margin-top:8px}
+.h3{margin:22px 0 0;font-size:15px;font-weight:500}
+.wx{display:grid;gap:6px;margin-top:8px}
+.wx div{text-align:center;background:var(--blue-soft);border-radius:12px;padding:6px 2px;font-size:12px;color:var(--muted)}
+.wx b{display:block;font-weight:500;color:var(--ink);font-size:14px}
+.notes h3{font-size:15px;font-weight:500;margin:20px 0 4px}
 .notes ul{margin:0;padding-left:20px}
 .notes li{margin-bottom:4px}
-.foot{text-align:center;font-size:12px;color:var(--muted);margin-top:28px}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
-.status{font-size:12px;color:var(--muted);text-align:center;margin-top:10px}
-.msg{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-top:16px}
-.skel{height:120px;border-radius:14px;background:var(--chip);margin-top:12px;animation:pulse 1.2s ease-in-out infinite}
-@keyframes pulse{50%{opacity:.5}}
+.empty{color:var(--muted);font-size:14px;margin-top:14px}
+
+/* tab bar */
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--bg);border-top:1px solid var(--line);padding:6px 0 calc(6px + env(safe-area-inset-bottom,0px))}
+.tabbar .in{max-width:520px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+.tab{border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;color:var(--muted);padding:4px 0;cursor:pointer}
+.tab svg{width:22px;height:22px}
+.tab[aria-selected="true"]{color:var(--blue-ink)}
+
+/* status & login */
+.status{font-size:12px;color:var(--muted);display:flex;justify-content:center;align-items:center;gap:10px;margin:30px 0 4px;flex-wrap:wrap}
+.btn{border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:4px 12px;font-size:12px;cursor:pointer;color:var(--muted)}
+.btn.p{background:var(--blue);border-color:var(--blue);color:var(--on-blue);font-size:15px;padding:9px 24px}
+.foot{text-align:center;font-size:11px;color:var(--muted);margin:0 0 10px}
+.msg{background:var(--blue-soft);border-radius:18px;padding:20px;margin-top:22px}
+.msg p{margin:4px 0 0;font-size:14px;color:var(--muted)}
+.login{display:grid;gap:12px}
+.pwin{font:inherit;font-size:16px;padding:11px 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);width:100%}
+.login .btn{justify-self:start}
+.err{color:var(--pink)!important}
+.skel{height:120px;border-radius:18px;background:var(--blue-soft);margin-top:16px}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header class="hero">
+  <header class="hero" id="hero">
+    <p class="dates" id="dates"></p>
     <h1 id="title">行程</h1>
-    <p class="sub"><span id="dates"></span> <span class="test" id="testtag" hidden></span></p>
-    <p class="who" id="who"></p>
-    <div class="count" id="count"></div>
-    <svg class="deco" viewBox="0 0 400 84" preserveAspectRatio="none" aria-hidden="true">
-      <g fill="none" stroke="#C9A24E" stroke-width="1.5">
-        <path d="M200 84 A80 80 0 0 1 360 84"/><path d="M220 84 A60 60 0 0 1 340 84"/><path d="M240 84 A40 40 0 0 1 320 84"/>
-        <path d="M40 84 A80 80 0 0 1 200 84"/><path d="M60 84 A60 60 0 0 1 180 84"/><path d="M80 84 A40 40 0 0 1 160 84"/>
-        <path d="M-120 84 A80 80 0 0 1 40 84"/><path d="M360 84 A80 80 0 0 1 520 84"/>
-      </g>
-      <g fill="#C9A24E" opacity=".9">
-        <rect x="276" y="22" width="4" height="62"/><circle cx="278" cy="34" r="7"/><circle cx="278" cy="54" r="4"/><rect x="277" y="6" width="2" height="18"/>
-      </g>
-    </svg>
+    <p class="when" id="when"></p>
+    <div id="alert"></div>
+    <div id="flights"></div>
   </header>
-  <div id="app"><div class="skel"></div><div class="skel"></div></div>
-  <p class="status" id="status"></p>
-  <p class="foot">航班與店家資訊請以實際預訂為準。<br><button class="btn" id="reset" style="margin-top:8px">清除打勾紀錄</button></p>
+  <main><div id="app"><div class="skel"></div><div class="skel"></div></div>
+    <div class="status"><span id="status"></span><button class="btn" id="refresh" type="button" hidden>重新整理</button><button class="btn" id="logout" type="button" hidden>登出</button></div>
+    <p class="foot">航班、住宿與訂位請以實際預訂為準</p>
+  </main>
 </div>
+<nav class="tabbar" id="tabbar" hidden role="tablist" aria-label="分類"><div class="in">
+  <button class="tab" role="tab" data-v="plan"><svg class="i" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>行程</button>
+  <button class="tab" role="tab" data-v="stay"><svg class="i" viewBox="0 0 24 24"><path d="M3 19V8M3 15h18v4M21 15v-3a3 3 0 0 0-3-3h-7v6"/><circle cx="7" cy="12" r="1.8"/></svg>住宿</button>
+  <button class="tab" role="tab" data-v="list"><svg class="i" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>口袋名單</button>
+  <button class="tab" role="tab" data-v="notes"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5M12 8h.01"/></svg>須知</button>
+</div></nav>
 
 <script>
-/* ====== 只需要改這一行：貼上 Apps Script 部署後的網址（結尾是 /exec） ====== */
+/* ====== 資料來源：Apps Script 部署網址（結尾是 /exec） ====== */
 const API_URL = "https://script.google.com/macros/s/AKfycbzMPqAtUmAZAObPEfp_CJ4VhVgFhxhlHMxJYTbxqw5Fx6bnSahSGg7QNeqwqAHo2WA9/exec";
-/* ========================================================================== */
+/* ========================================================== */
 
-const CACHE_KEY="trip-data", CHECK_KEY="trip-check", TAB_KEY="trip-tab";
+const CACHE_KEY="trip-data", TAB_KEY="trip-tab", PW_KEY="trip-pw";
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const ls={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},
+  set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}},del(k){try{localStorage.removeItem(k)}catch(e){}}};
 const gUrl=q=>"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q);
 const aUrl=q=>"https://uri.amap.com/search?keyword="+encodeURIComponent(q);
-const mapBtns=q=>q?`<div class="maps"><a class="btn g" href="${gUrl(q)}" target="_blank" rel="noopener">Google 地圖</a><a class="btn" href="${aUrl(q)}" target="_blank" rel="noopener">高德地圖</a></div>`:"";
-const ls={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
-const mins=t=>{const m=String(t).match(/(\d{1,2})[:：](\d{2})/);return m?(+m[1])*60+(+m[2]):9999};
+const PIN='<svg class="i" viewBox="0 0 24 24"><path d="M12 21s-6-5.5-6-10.5a6 6 0 0 1 12 0C18 15.5 12 21 12 21z"/><circle cx="12" cy="10.5" r="2"/></svg>';
+const maps=q=>q?`<div class="maps"><a href="${gUrl(q)}" target="_blank" rel="noopener">${PIN}Google 地圖</a><a href="${aUrl(q)}" target="_blank" rel="noopener">高德地圖</a></div>`:"";
+const mapBtn=q=>q?`<details class="mapbtn"><summary aria-label="開啟地圖">${PIN}</summary><div class="pop"><a href="${gUrl(q)}" target="_blank" rel="noopener">Google 地圖</a><a href="${aUrl(q)}" target="_blank" rel="noopener">高德地圖</a></div></details>`:"";
+const ICON={
+ bed:'<svg class="i" viewBox="0 0 24 24"><path d="M3 19V8M3 15h18v4M21 15v-3a3 3 0 0 0-3-3h-7v6"/><circle cx="7" cy="12" r="1.8"/></svg>',
+ bell:'<svg class="i" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg>',
+ car:'<svg class="i" viewBox="0 0 24 24"><path d="M5 16V12l2-5h10l2 5v4z"/><path d="M5 16v2M19 16v2M5 12h14"/><circle cx="8" cy="14" r=".8"/><circle cx="16" cy="14" r=".8"/></svg>',
+ alert:'<svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 8v5M12 16h.01"/></svg>',
+ plane:'<svg class="i" viewBox="0 0 24 24"><path d="M10.5 13.5 4 12l-1 1.5 6 3 3 6 1.5-1-1.5-6.5L18 9a2 2 0 0 0-3-3l-5 5.5z"/></svg>'};
 
-let D=null, state=ls.get(CHECK_KEY,{}), tab=ls.get(TAB_KEY,"plan"), day=null;
+let D=null, tab=ls.get(TAB_KEY,"plan"), day=null, lastFetch=0, loading=false;
+const S=n=>(D&&D[n])||[];
+function cfg(k){const r=S("設定").find(x=>x["項目"]===k);return r?r["內容"]:""}
+const booked=t=>/已/.test(t["預約狀態"]||"")&&!/未/.test(t["預約狀態"]||"");
+const trOf=k=>S("接送").find(x=>x["類型"]===k)||null;
+function trChip(t){return booked(t)?`<span class="st ok">已預約</span>`:`<span class="st no">尚未預約</span>`}
+function trSrc(t){return esc(t["預約來源"]||"")}
+const safeUrl=u=>/^https?:\/\//i.test(String(u||"").trim())?String(u).trim():"";
+function trLinks(t){const tel=String(t["電話"]||"").trim(),u=safeUrl(t["預約網址"]);
+  return (tel?`<a class="tel" href="tel:${esc(tel.replace(/[^\d+]/g,""))}">${esc(tel)}</a>`:"")+(u?`<a class="tel" href="${esc(u)}" target="_blank" rel="noopener">預約網頁</a>`:"")}
+function payChip(h){const s=String(h["是否已付"]||"").trim();if(!s)return "";
+  return s==="已付款"?`<span class="st ok">已付款</span>`:s==="到店付款"?`<span class="st due">到店付款</span>`:`<span class="st no">${esc(s)}</span>`}
+function hotel(name){return S("住宿").find(h=>h["名稱"]===name)||null}
 
-function cfg(k){const r=(D["設定"]||[]).find(x=>x["項目"]===k);return r?r["內容"]:""}
+/* 時間欄：09:30 → 固定時間；早上/上午/中午/下午/傍晚/晚上 → 彈性時段；空白或「彈性」→ 有空再去 */
+const SECS=[["am","上午"],["pm","下午"],["ev","晚上"],["free","有空再去"]];
+function parseTime(t){
+  t=String(t||"").trim();
+  const m=t.match(/(\d{1,2})[:：](\d{2})/);
+  if(m){const mins=+m[1]*60+(+m[2]);return {fixed:true,mins,sec:mins<720?"am":mins<1080?"pm":"ev",label:m[1].padStart(2,"0")+":"+m[2]}}
+  if(/早|上午/.test(t)) return {fixed:false,mins:480,sec:"am",label:t};
+  if(/中午|午餐/.test(t)) return {fixed:false,mins:720,sec:"pm",label:t};
+  if(/下午/.test(t)) return {fixed:false,mins:780,sec:"pm",label:t};
+  if(/傍晚|晚|夜/.test(t)) return {fixed:false,mins:1080,sec:"ev",label:t};
+  return {fixed:false,mins:9999,sec:"free",label:""};
+}
+function startDate(){const m=cfg("出發日期").match(/(\d{4})\D(\d{1,2})\D(\d{1,2})/);return m?new Date(+m[1],+m[2]-1,+m[3]):null}
+function todayIndex(){const s=startDate();if(!s) return -1;const n=Math.round((new Date().setHours(0,0,0,0)-s)/864e5);return n>=0&&n<S("每日").length?n:-1}
+function chipDate(txt){const m=String(txt).match(/(\d{1,2})\/(\d{1,2})(?:\D*([一二三四五六日]))?/);return m?{n:m[2],w:m[3]?"週"+m[3]:m[1]+"月"}:{n:"",w:txt}}
 
 function renderShell(){
-  document.title=(cfg("標題")||"行程")+"｜行程";
-  $("title").textContent=cfg("標題")||"行程";
-  $("dates").textContent=cfg("日期說明");
-  const tt=cfg("測試標記"); $("testtag").hidden=!tt; $("testtag").textContent=tt;
-  $("who").textContent=cfg("旅客")?"旅客："+cfg("旅客"):"";
-  const sd=cfg("出發日期").match(/(\d{4})\D(\d{1,2})\D(\d{1,2})/);
-  const days=(D["每日"]||[]).length||1;
-  if(sd){
-    const start=new Date(+sd[1],+sd[2]-1,+sd[3]);
-    const n=Math.round((start-new Date().setHours(0,0,0,0))/864e5);
-    $("count").innerHTML=n>0?`<b>${n}</b><span>天後出發</span>`:n>-days?`<b>D${1-n}</b><span>旅程進行中</span>`:`<span>旅程已結束</span>`;
-    if(day===null) day=Math.min(Math.max(-n,0),days-1);
-  }
-  if(day===null) day=0;
-
-  const f=(D["航班"]||[]).map(x=>`<div class="flt ${x["類型"]==="回程"?"back":""}"><span class="tag">${esc(x["類型"])}</span><span class="no">${esc(x["航班"])}</span>
-    <div class="t"><strong>${esc(x["起飛時間"])}</strong><strong>${esc(x["抵達時間"])}</strong></div>
-    <div class="ap"><span>${esc(x["出發機場"])}</span><span>${esc(x["抵達機場"])}</span></div>
-    <div class="d">${esc(x["日期說明"])}</div></div>`).join("");
-  const hq=cfg("住宿地圖關鍵字")||cfg("住宿名稱");
-  const wx=(D["天氣"]||[]).map(w=>`<div><div>${esc(w["日期"])}</div><div class="i">${esc(w["圖示"])}</div><div class="tmp">${esc(w["溫度"])}</div></div>`).join("");
-  $("app").innerHTML=`
-  ${f?`<section class="flights" aria-label="航班">${f}</section>`:""}
-  ${cfg("住宿名稱")?`<section class="block hotel"><h3>住宿</h3>
-    <a class="name" href="${gUrl(hq)}" target="_blank" rel="noopener">${esc(cfg("住宿名稱"))}</a>
-    <div class="small">${esc(cfg("住宿說明"))}</div><div class="small">${esc(cfg("住宿時間"))}</div>${mapBtns(hq)}</section>`:""}
-  ${wx?`<section class="block"><h3>天氣（往年同期參考）</h3><div class="wx" style="grid-template-columns:repeat(${Math.min((D["天氣"]||[]).length,7)},1fr)">${wx}</div>
-    <p class="small" style="margin:8px 0 0">${esc(cfg("天氣說明"))}</p></section>`:""}
-  <nav class="tabs" role="tablist" aria-label="分類">
-    <button class="tab" role="tab" data-v="plan">行程</button><button class="tab" role="tab" data-v="food">美食</button>
-    <button class="tab" role="tab" data-v="shop">購物</button><button class="tab" role="tab" data-v="notes">須知</button>
-  </nav>
-  <main id="view"></main>`;
+  const title=cfg("標題")||"行程";document.title=title;$("title").textContent=title;
+  $("dates").innerHTML=esc(cfg("日期說明"))+(cfg("測試標記")?`<span class="tag">${esc(cfg("測試標記"))}</span>`:"");
+  const s=startDate(),days=S("每日").length||1;
+  let w="";
+  if(s){const n=Math.round((s-new Date().setHours(0,0,0,0))/864e5);
+    w=n>1?`還有<b>${n}</b>天出發`:n===1?"明天出發":n>-days?`旅程第<b>${1-n}</b>天`:"旅程已結束";}
+  $("when").innerHTML=w+(cfg("旅客")?`<span class="who">　${esc(cfg("旅客"))}</span>`:"");
+  const f=S("航班"),ti=todayIndex(),lastI=S("每日").length-1;
+  /* 航班日期：去程取「每日」第一天，回程取最後一天 */
+  const fDate=k=>{const d=S("每日");const r=k==="回程"?d[d.length-1]:k==="去程"?d[0]:null;return r?String(r["日期"]||""):""};
+  const showF=ti<0||ti===0||ti===lastI;
+  const trRow=k=>{const x=trOf(k);if(!x) return "";
+    return `<div class="tr"><span></span><span class="ct">${ICON.car}<span>機場接送</span>${trChip(x)}${x["預約來源"]?`<span>${trSrc(x)}</span>`:""}${trLinks(x)}</span></div>`};
+  $("flights").innerHTML=f.length&&showF?`<div class="flights">${f.map(x=>`<div class="fl ${x["類型"]==="回程"?"back":""}">
+    <span class="k">${esc(x["類型"])}</span>
+    <span class="rt"><b>${esc(x["起飛時間"])}</b><span class="ar">→</span><b>${esc(x["抵達時間"])}</b><span class="ap">${esc(x["出發機場"])} → ${esc(x["抵達機場"])}</span></span>
+    <span class="no">${esc(x["航班"])}<br>${esc(fDate(x["類型"]))}${x["艙等"]?`<span class="cls">${esc(x["艙等"])}</span>`:""}</span></div>${trRow(x["類型"])}`).join("")}</div>`:"";
+  const s2=startDate(),ended=s2&&Math.round((s2-new Date().setHours(0,0,0,0))/864e5)<=-(S("每日").length||1);
+  const un=S("接送").filter(x=>!booked(x));
+  const unpaid=S("住宿").filter(h=>String(h["是否已付"]||"").trim()==="未付款");
+  const al=[];
+  if(un.length) al.push(`${un.map(x=>esc(x["類型"])).join("、")}接送尚未預約`);
+  if(unpaid.length) al.push(`${unpaid.length} 間住宿尚未付款`);
+  $("alert").innerHTML=!ended&&al.length?al.map(a=>`<span class="alert">${ICON.alert}${a}</span>`).join(" "):"";
+  if(day===null){const ti=todayIndex();day=ti>=0?ti:0}
+  $("tabbar").hidden=false;
   renderView();
 }
 
+const dayHotel=i=>{const r=S("每日")[i];return r?(r["住宿"]||"").trim():""};
+
+function renderPlan(v){
+  const days=S("每日");if(!days.length){v.innerHTML='<p class="empty">「每日」分頁還沒有資料。</p>';return}
+  day=Math.min(day,days.length-1);
+  const ti=todayIndex(),cur=days[day],dn=String(cur["天"]);
+  const raw=S("行程").filter(x=>String(x["天"])===dn);
+  const trK=day===0?"去程":day===days.length-1?"回程":"";const trX=trK?trOf(trK):null;
+
+  let last=0;const items=raw.map((x,i)=>{const p=parseTime(x["時間"]);const key=p.fixed?p.mins:(p.sec==="free"?99999+i:Math.max(last,p.mins)+0.01*(i+1));if(p.fixed)last=p.mins;return {x,p,key}}).sort((a,b)=>a.key-b.key);
+
+  const hn=dayHotel(day),prev=day>0?dayHotel(day-1):"",h=hn?hotel(hn):null;
+  let rem="";
+  if(hn){const moving=prev&&prev!==hn;
+    rem+=`<div class="rrow"><span class="ic">${ICON.bed}</span><div class="main">${moving?"今天換飯店，今晚住":"今晚住"}<span class="nm">${esc(hn)}</span>
+      ${h&&h["地址"]?`<div class="sub">${esc(h["地址"])}</div>`:""}${h&&/未付|到店/.test(h["是否已付"]||"")&&(moving||day===0)?`<div class="sub">入住時記得付款${h["費用"]?`：${esc(h["費用"])}`:""}</div>`:""}${moving?`<div class="sub">記得從${esc(prev)}退房、帶走行李</div>`:""}</div>
+      <a class="lk" href="${gUrl((h&&h["地圖關鍵字"])||hn)}" target="_blank" rel="noopener">地圖</a></div>`;
+  } else if(day===days.length-1){const r=S("航班").find(f=>f["類型"]==="回程");
+    if(r) rem+=`<div class="rrow"><span class="ic">${ICON.plane}</span><div class="main">今天返台，<b>${esc(r["起飛時間"])}</b> ${esc(r["航班"])} 起飛<div class="sub">${esc(r["出發機場"])}${prev?`，記得從${esc(prev)}退房`:""}</div></div></div>`;}
+  if(trX){const lk=trLinks(trX);const tr=`<div class="rrow"><span class="ic">${ICON.car}</span><div class="main">${trK==="去程"?"去機場":"回家"}的機場接送 ${trChip(trX)}
+    ${trX["預約來源"]?`<div class="sub">${trSrc(trX)}</div>`:""}${trX["備註"]?`<div class="sub">${esc(trX["備註"])}</div>`:""}${lk?`<div class="sub lks">${lk}</div>`:""}</div></div>`;rem=day===0?tr+rem:rem+tr;}
+  items.filter(o=>o.x["訂位"]).forEach(o=>{rem+=`<div class="rrow"><span class="ic">${ICON.bell}</span><div class="main">${esc(o.x["訂位"])}<div class="sub">${esc(o.x["名稱"])}</div></div></div>`});
+
+  let html=`<div class="days" role="tablist">${days.map((x,i)=>{const c=chipDate(x["日期"]);return `<button class="day" role="tab" aria-selected="${i===day}" data-d="${i}" aria-label="第 ${esc(x["天"])} 天 ${esc(x["日期"])}">
+    ${i===ti?'<span class="dot" title="今天"></span>':""}<span class="w">${esc(c.w)}</span><span class="n">${esc(c.n||x["天"])}</span><span class="p">${esc(x["簡稱"])}</span></button>`}).join("")}</div>
+    <div class="dayhead"><h2>${esc(cur["標題"])}</h2></div>
+    ${rem?`<section class="remind" aria-label="今天記得">${rem}</section>`:""}`;
+  SECS.forEach(([k,label])=>{
+    const g=items.filter(o=>o.p.sec===k);if(!g.length) return;
+    html+=`<section class="sec"><h3>${label}</h3><ol class="tl">${g.map(({x,p})=>`<li class="it ${p.fixed?"fixed":"flex"}">
+      <time>${p.fixed?esc(p.label):esc(k!=="free"&&p.label!==label?p.label:"")}</time><span class="rail" aria-hidden="true"></span>
+      <div class="body"><div class="bd"><div class="tt">${esc(x["名稱"])}${x["類別"]?`<span class="k">${esc(x["類別"])}</span>`:""}</div>
+      ${x["說明"]?`<p>${esc(x["說明"])}</p>`:""}${x["訂位"]?`<div class="resv">${ICON.bell}${esc(x["訂位"])}</div>`:""}
+      </div>
+      ${mapBtn(x["地圖關鍵字"]||x["名稱"])}</div></li>`).join("")}</ol></section>`;
+  });
+  html+=items.length?`<div class="legend"><span><i></i>固定時間</span><span><i class="o"></i>彈性安排</span></div>`:'<p class="empty">這天還沒有安排行程。</p>';
+  v.innerHTML=html;
+}
+function renderStay(v){
+  const hs=S("住宿");
+  v.innerHTML=`<h2 class="ptitle">住宿</h2>`+(hs.length?`<ul class="list">${hs.map(h=>`<li class="hotel"><div class="tt">${esc(h["名稱"])}</div>
+    <div class="when2">${h["入住"]?`<span>入住 ${esc(h["入住"])}</span>`:""}${h["退房"]?`<span class="o">退房 ${esc(h["退房"])}</span>`:""}</div>
+    ${h["地址"]?`<div class="addr">${esc(h["地址"])}</div>`:""}${h["費用"]||h["預訂平台"]||h["是否已付"]?`<div class="pay">${h["費用"]?`<span><span class="lb">費用</span> ${esc(h["費用"])}</span>`:""}${h["預訂平台"]?`<span><span class="lb">訂房</span> ${esc(h["預訂平台"])}</span>`:""}${payChip(h)}</div>`:""}${h["備註"]?`<p>${esc(h["備註"])}</p>`:""}
+    ${maps(h["地圖關鍵字"]||h["名稱"])}</li>`).join("")}</ul>`:'<p class="empty">「住宿」分頁還沒有資料。</p>');
+}
+function renderList(v){
+  const block=(t,L)=>L.length?`<h3 class="h3">${t}</h3><ul class="list">${L.map(x=>`<li><div class="tt">${esc(x["名稱"])}</div>${x["說明"]?`<p>${esc(x["說明"])}</p>`:""}${maps(x["地圖關鍵字"]||x["名稱"])}</li>`).join("")}</ul>`:"";
+  v.innerHTML=`<h2 class="ptitle">口袋名單</h2>`+((block("美食",S("美食"))+block("購物",S("購物")))||'<p class="empty">還沒有口袋名單。</p>');
+}
+function renderNotes(v){
+  const groups={};S("須知").forEach(x=>{const g=x["分類"]||"其他";(groups[g]=groups[g]||[]).push(x["內容"])});
+  const wx=S("天氣");
+  v.innerHTML=`<h2 class="ptitle">須知</h2>`+(wx.length?`<h3 class="h3">天氣（往年同期參考）</h3><div class="wx" style="grid-template-columns:repeat(${Math.min(wx.length,7)},1fr)">${wx.map(w=>`<div>${esc(w["日期"])}<b>${esc(w["溫度"])}</b></div>`).join("")}</div>
+    ${cfg("天氣說明")?`<p class="empty" style="margin-top:8px">${esc(cfg("天氣說明"))}</p>`:""}`:"")
+    +`<div class="notes">${Object.keys(groups).map(g=>`<h3>${esc(g)}</h3><ul>${groups[g].map(c=>`<li>${esc(c)}</li>`).join("")}</ul>`).join("")}</div>`;
+}
 function renderView(){
   document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.v===tab));
-  const v=$("view"); if(!v) return;
-  if(tab==="plan"){
-    const days=D["每日"]||[]; if(!days.length){v.innerHTML='<p class="small">「每日」分頁還沒有資料。</p>';return}
-    day=Math.min(day,days.length-1);
-    const cur=days[day], dn=String(cur["天"]);
-    const items=(D["行程"]||[]).filter(x=>String(x["天"])===dn).sort((a,b)=>mins(a["時間"])-mins(b["時間"]));
-    const key=x=>dn+"|"+x["時間"]+"|"+x["名稱"];
-    const done=items.filter(x=>state[key(x)]).length;
-    v.innerHTML=`<div class="days" role="tablist" style="grid-template-columns:repeat(${Math.min(days.length,7)},1fr)">${days.map((x,i)=>`<button class="day" role="tab" aria-selected="${i===day}" data-d="${i}"><span class="n">D${esc(x["天"])}</span><span class="p">${esc(x["簡稱"])}</span></button>`).join("")}</div>
-    <div class="prog"><i style="width:${items.length?done/items.length*100:0}%"></i></div>
-    <div class="small">完成 ${done} / ${items.length}</div>
-    <div class="dayhead"><h2>${esc(cur["日期"])} ${esc(cur["標題"])}</h2></div>
-    <ol class="tl">${items.map(it=>{const k=key(it),on=!!state[k];return `<li class="${on?"done":""}"><time>${esc(it["時間"])}</time>
-      <button class="chk" aria-pressed="${on}" aria-label="標記完成：${esc(it["名稱"])}" data-k="${esc(k)}"></button>
-      <div class="item"><div class="tt">${it["類別"]?`<span class="k">${esc(it["類別"])}</span>`:""}${esc(it["名稱"])}</div>${it["說明"]?`<p>${esc(it["說明"])}</p>`:""}${mapBtns(it["地圖關鍵字"]||it["名稱"])}</div></li>`}).join("")}</ol>`;
-  } else if(tab==="food"||tab==="shop"){
-    const L=D[tab==="food"?"美食":"購物"]||[];
-    v.innerHTML=`<ul class="list">${L.map(x=>`<li><div class="tt">${esc(x["名稱"])}</div><p>${esc(x["說明"])}</p>${mapBtns(x["地圖關鍵字"]||x["名稱"])}</li>`).join("")}</ul>`;
-  } else {
-    const groups={};(D["須知"]||[]).forEach(x=>{(groups[x["分類"]||"其他"]=groups[x["分類"]||"其他"]||[]).push(x["內容"])});
-    v.innerHTML=`<div class="notes">${Object.keys(groups).map(g=>`<h3>${esc(g)}</h3><ul>${groups[g].map(c=>`<li>${esc(c)}</li>`).join("")}</ul>`).join("")}</div>`;
-  }
+  $("hero").classList.toggle("compact",tab!=="plan"&&!!D);
+  $("flights").hidden=tab!=="plan";
+  const v=$("app");if(!D) return;
+  ({plan:renderPlan,stay:renderStay,list:renderList,notes:renderNotes}[tab]||renderPlan)(v);
 }
 
+/* ---------- 登入與資料讀取 ---------- */
 function setStatus(t){$("status").textContent=t}
 function fmt(iso){const d=new Date(iso);return isNaN(d)?"":`${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}`}
-
+function clearHeader(){$("title").textContent="行程";$("dates").textContent="";$("when").textContent="";$("flights").innerHTML="";$("tabbar").hidden=true;document.title="行程"}
+function showLogin(msg,isErr){
+  D=null;clearHeader();setStatus("");$("refresh").hidden=true;$("logout").hidden=true;
+  $("app").innerHTML=`<form class="msg login" id="loginForm"><b>請輸入密碼</b>
+    <p class="${isErr?"err":""}">${esc(msg||"輸入一次後，這支手機會記住密碼，下次打開不用再輸入。")}</p>
+    <input id="pw" class="pwin" type="password" autocomplete="current-password" aria-label="密碼" placeholder="密碼">
+    <button class="btn p" type="submit">進入</button></form>`;
+}
+function showMsg(t,b){$("app").innerHTML=`<div class="msg"><b>${esc(t)}</b><p>${esc(b)}</p></div>`}
 async function load(){
-  const cached=ls.get(CACHE_KEY,null);
-  if(cached){D=cached;renderShell();setStatus("資料更新中…")}
-  if(!/^https:\/\/script\.google\.com\//.test(API_URL)){
-    $("app").innerHTML='<div class="msg"><b>還沒設定資料來源</b><p class="small">請把 Apps Script 部署後的網址，貼到 index.html 裡的 API_URL 那一行。</p></div>';setStatus("");return}
+  if(loading) return;
+  if(!/^https:\/\/script\.google\.com\//.test(API_URL)){showMsg("還沒設定資料來源","請把 Apps Script 部署網址貼到 index.html 的 API_URL。");return}
+  const pw=ls.get(PW_KEY,"");if(!pw){showLogin();return}
+  loading=true;
+  if(!D){const c=ls.get(CACHE_KEY,null);if(c){D=c;renderShell()}}
+  $("refresh").hidden=false;$("logout").hidden=false;$("refresh").disabled=true;setStatus("資料更新中…");
   try{
-    const r=await fetch(API_URL,{cache:"no-store"});
+    const r=await fetch(API_URL+"?key="+encodeURIComponent(pw)+"&t="+Date.now(),{cache:"no-store"});
     if(!r.ok) throw new Error(r.status);
     const data=await r.json();
-    D=data;ls.set(CACHE_KEY,data);renderShell();setStatus("資料更新時間 "+fmt(data.updated));
+    if(data.error==="auth"){ls.del(PW_KEY);ls.del(CACHE_KEY);showLogin("密碼錯誤，或密碼已經變更，請重新輸入。",true);return}
+    if(data.error==="locked"){setStatus("嘗試次數過多，請 10 分鐘後再試");if(!D)showMsg("暫時無法登入","密碼錯誤次數過多，請 10 分鐘後再試。");return}
+    if(data.error==="nopassword"){showMsg("尚未設定密碼","請管理者先在試算表的「存取設定」分頁設定密碼。");setStatus("");return}
+    if(data.error) throw new Error(data.error);
+    D=data;ls.set(CACHE_KEY,data);lastFetch=Date.now();renderShell();setStatus("資料更新時間 "+fmt(data.updated));
   }catch(e){
-    if(cached) setStatus("目前無法連線，顯示上次儲存的資料");
-    else {$("app").innerHTML='<div class="msg"><b>讀取資料失敗</b><p class="small">請確認網路連線，或檢查 Apps Script 的部署設定是否為「所有人」都能存取。</p></div>';setStatus("")}
-  }
+    if(D) setStatus("目前無法連線，顯示上次儲存的資料");
+    else {showMsg("讀取資料失敗","請確認網路連線後，按「重新整理」再試一次。");setStatus("")}
+  }finally{loading=false;$("refresh").disabled=false}
 }
-
+document.addEventListener("submit",e=>{if(e.target.id!=="loginForm")return;e.preventDefault();const v=($("pw").value||"").trim();if(!v)return;ls.set(PW_KEY,v);load()});
 document.addEventListener("click",e=>{
-  const t=e.target.closest(".tab");if(t){tab=t.dataset.v;ls.set(TAB_KEY,tab);renderView();return}
+  const t=e.target.closest(".tab");if(t){tab=t.dataset.v;ls.set(TAB_KEY,tab);renderView();window.scrollTo(0,0);return}
   const d=e.target.closest(".day");if(d){day=+d.dataset.d;renderView();return}
-  const c=e.target.closest(".chk");if(c){const k=c.dataset.k;state[k]=!state[k];if(!state[k])delete state[k];ls.set(CHECK_KEY,state);renderView();return}
-  if(e.target.id==="reset"){state={};ls.set(CHECK_KEY,state);if(D)renderView()}
+  if(e.target.id==="refresh"){load();return}
+  if(e.target.id==="logout"){ls.del(PW_KEY);ls.del(CACHE_KEY);showLogin("已登出。");return}
 });
+function autoRefresh(){if(document.visibilityState==="visible"&&ls.get(PW_KEY,"")&&Date.now()-lastFetch>30000) load()}
+document.addEventListener("visibilitychange",autoRefresh);
+window.addEventListener("pageshow",e=>{if(e.persisted)autoRefresh()});
 load();
 </script>
 </body>
